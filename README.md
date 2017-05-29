@@ -1,6 +1,8 @@
 # BatchedEngine
 One of my first projects from quite a few years back for making Batch Files without any code. The system was designed to be modular and comes with a Command-Line UI with many features including an auto-installer, launch verification with access tokens, autoupdates, live debugger, a dynamic error reporter system, command line UI with enhancements, editor for creating/deleting/editing projects easily and efficiently, recovery system to recover crashed projects and some other stuff.
 
+The code is psychotically messy so you have been warned!
+
 The project was never nearly completed but the framework *around* the editor was made up. The editor was designed to use a BEVL (BatchedEngine Variable Language) system (which was made) and made each code snippet a variable in a systematically and modular system. The BEVL framework is too experimental an would cause serious damage if implemented directly ans it needs several dependances so it has been left out.
 
 ## BEVL (BatchedEngine Variable Language)
