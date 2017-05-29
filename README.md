@@ -1,7 +1,7 @@
 # BatchedEngine
-One of my first projects from quite a few years back for making Batch Files without any code. The system was designed to be modular and comes with a Command-Line UI with many features including an auto-installer, launch verification with access tokens, autoupdates, live debugger, a dynamic error reporter system, command line UI with enhancements, editor for creating/deleting/editing projects easily and efficiently, recovery system to recover crashed projects and some other stuff.
+One of my first projects from quite a few years back for making Batch Files without any code. The system was designed to be modular and comes with a Command-Line UI with many features including an auto-installer, launch verification with access tokens, autoupdates, live debugger, a dynamic error reporter system, command line UI with enhancements, editor for creating/deleting/editing projects easily and efficiently, recovery system to recover crashed projects and some other stuff. Something like this could be done in C# or another language in about 1000-2000 lines of code but will probably require at least 15000 in Batch due to its inefficiency.
 
-The code is psychotically messy so you have been warned!
+The code is psychotically messy so you have been warned! If someone attempts to finish the code into a working version go ahead (you might even get a reward)!
 
 The project was never nearly completed but the framework *around* the editor was made up. The editor was designed to use a BEVL (BatchedEngine Variable Language) system (which was made) and made each code snippet a variable in a systematically and modular system. The BEVL framework is too experimental an would cause serious damage if implemented directly ans it needs several dependances so it has been left out.
 
@@ -127,4 +127,4 @@ The compile system would use a catalouge of all these functions (complex, lets n
 `goto loop1loop`
 
 
-While this system was never finished it was deeply coded and set up. I may finish this project for fun in several years or whenever I can be bothered to waste my time on this dying language. I hope this might give instpiration to someone on how to coe their own system or whatever.
+While this system was never finished it was deeply coded and set up. I may finish this project for fun in several years or whenever I can be bothered to waste my time on this dying language. I hope this might give instpiration to someone on how to coe their own system or whatever. (P.S I'm genuinely fucking tired of this project just laying around in my text editors, its meaningless and serves very litte use as well, the only possibly useful thing would be the BEVL system)
