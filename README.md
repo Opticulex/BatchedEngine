@@ -1,13 +1,13 @@
 # BatchedEngine
-A project from a few years back for making Batch Files without any code. The system was designed to be modular and comes with a Command-Line UI with many features including an auto-installer, launch verification with access tokens, autoupdates, live debugger, a dynamic error reporter system, command line UI with enhancements, editor for creating/deleting/editing projects easily and efficiently, recovery system to recover crashed projects and some other stuff.
+One of my first projects from quite a few years back for making Batch Files without any code. The system was designed to be modular and comes with a Command-Line UI with many features including an auto-installer, launch verification with access tokens, autoupdates, live debugger, a dynamic error reporter system, command line UI with enhancements, editor for creating/deleting/editing projects easily and efficiently, recovery system to recover crashed projects and some other stuff.
 
-The project was never nearly completed but the framework around the editor was made up. The editor was designed to use a BEVL (BatchedEngine Variable Language) system (which was made) and made each code snippet a variable in a systematically and modular system. The BEVL framework is too experimental an would cause serious damage if implemented directly ans it needs several dependances so it has been left out.
+The project was never nearly completed but the framework *around* the editor was made up. The editor was designed to use a BEVL (BatchedEngine Variable Language) system (which was made) and made each code snippet a variable in a systematically and modular system. The BEVL framework is too experimental an would cause serious damage if implemented directly ans it needs several dependances so it has been left out.
 
 ## BEVL (BatchedEngine Variable Language)
 
-The BEVL system stores everything in variabls with names and files corresponding to the code/type/input. While extremely inefficient it allows for a more secure approach. Example:
+The BEVL system stores everything in variables with names and files corresponding to the code/type/input. While extremely inefficient it allows for a more secure approach. Example:
 
-After creating a 10-iteration loop function that would echo "hello" and "test" in cmd, the following would be created (under the project file directory in C:\BatchedEngine\Projects\[projectname]\code\[etc etc], for this scenario the project will be called 'example') (All '001' would be '1' in the actual coe):
+After creating a 10-iteration loop function that would echo "hello" and "test" in cmd, the following would be created (under the project file directory in C:\BatchedEngine\Projects\[projectname]\code\[etc etc], for this scenario the project will be called 'example') (All '001' would be '1' in the actual code):
 
 **C:\BatchedEngine\Projects\exaple\code\bevl_code001_loop_001**
 
