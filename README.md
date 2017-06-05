@@ -2,132 +2,44 @@
 
 **Installing: Place All The files APART from BatchedEngine.bat into C:\BatchedEngine!! BatchedEngine.bat can be anywhere!**
 
-One of my first big projects from quite a few years back for making Batch Files without any code. The system was designed to be modular and comes with a Command-Line UI with many features including an auto-installer, launch verification with access tokens, autoupdates, live debugger, a dynamic error reporter system, command line UI with enhancements, editor for creating/deleting/editing projects easily and efficiently, recovery system to recover crashed projects and some other stuff. Something like this could be done in C# or another language in about 1000-2000 lines of code but will probably require at least 15000 in Batch due to its inefficiency.
+One of my first big projects from quite a few years back for making Batch/AHK Files without any code. The system was designed to be modular and comes with a Command-Line UI with many features including an auto-installer, launch verification with access tokens, autoupdates, live debugger, a dynamic error reporter system, command line UI with enhancements, editor for creating/deleting/editing projects easily and efficiently, recovery system to recover crashed projects and some other stuff. Something like this could be done in C# or another language in about 1000-2000 lines of code but will probably require at least 15000 in Batch due to its inefficiency. Since uite a fair chunk of the code is several years old it is messy!
 
-The code is psychotically messy so you have been warned! If someone attempts to finish the code into a working version go ahead (you might even get a reward)!
+Since the code is hidden from the user, the user only sees entries for basic stuff such as text and coordinates, with descritions on what the function does and how to use it. Each individual snipped of code is called a 'function'.
 
-The project was never nearly completed but the framework *around* the editor was made up. The editor was designed to use a BEVL (BatchedEngine Variable Language) system (which was made) and made each code snippet a variable in a systematically and modular system. The BEVL framework is too experimental an would cause serious damage if implemented directly ans it needs several dependances so it has been left out.
+The project was abandoned a long time ago but it is occasionally developed. The method of controlling projects, their contents and compiling is controlled by a language called BEVL. A full documentation on how the project system works can be found below.
 
-## BEVL (BatchedEngine Variable Language)
+## Projects
 
-The BEVL system stores everything in variables with names and files corresponding to the code/type/input. While extremely inefficient it allows for a more secure approach. Example:
+When you create a new project it creates the core files in `C:\BatchedEngine\Projects\[projectname]\data` which include the `config.bat` file which stores all the data about the project (Compatible BatchedEngine and BEVL versions, Date created and other data) and some various config files to set the state of the project (e.g. Just created, Closed, Opened, Editing, In-Progress etc). It also creates the `code` folder for storing all hte actual project data and the `compile` folder for the finished product.
 
-After creating a 10-iteration loop function that would echo "hello" and "test" in cmd, the following would be created (under the project file directory in C:\BatchedEngine\Projects\[projectname]\code\[etc etc], for this scenario the project will be called 'example') (All '001' would be '1' in the actual code):
+While in the editor you can add/edit/delete and search for various functions. You can add preset Batch/AHK or add in custom commands. All project data is controlled by BEVL.
 
-**C:\BatchedEngine\Projects\exaple\code\bevl_code001_loop_001**
+## BEVL
 
-**C:\BatchedEngine\Projects\example\code\bevl_code001_loop_001\data.bat**
+BEVL (BatchedEngine Variable Language) comprises everything in a named, numbered and modular system storing all data inside of variables. The BEVL system is not efficient but is very easy to understand.
 
-`set bevl_code001_loop_001_data_loops=10`
+When the file is created it sets the total number of functions in the file to 0. Every time a function is added/deleted this number increases/decreases.
 
-`set bevl_code001_loop_001_data_meta=Loop (10)`
+### Adding a function
 
-`set bevl_code001_loop_001_data_search=loop`
+When creating a function (in this case, a 'Click' command), the system will first check how many prior functions there are and set the current cound to +1 of that number (so if there were 10 existing functions it would set the next one to 11). This number will be called `[count]` in this documentation for ease-of understanding. You will then be promped to enter all the inf required for the command, in this case, the coordinates to Click (11,10 in this example). Once you enter them, it will compile your data.
 
-**C:\BatchedEngine\Projects\example\code\bevl_code001_loop_001\code.bat**
+It will create a directory within the projects `code` folder named `bevl_[funtion type][count]` (in this case, `bevl_Click11`). It then writes into this directory the file `bevl_data.bat`, which contains all the data for the funtion. This will include the function type, metadata and the data for the command, in this case, the coordinates of the Click. It will then make sure the total count of lines is properly updated.
 
-`set bevl_code001_loop_001_code001=echo hello`
+### Deleting a function
 
-`set bevl_code001_loop_001_code002=echo test`
+To delete a function you must enter the full name of the function (e.g `bevl_Click11`). This can be found using the search feature. Once you enter in the name it then deletes the folder containing the data and reduces the total line count by 1.
 
-You can probably see the pattern. Now to analyse the way the variables are made:
+### Editing a function
 
-**set bevl_code001_loop_001_code001**
+To edit a function you must enter the full name of the function (e.g `bevl_Click11`). This can be found using the search feature. Once you enter the name it will search for the function and read its metadata to determine what function type it is. It will then open up the UI for you to edit in and will save your changes.
 
-`bevl` - Defines it as a BEVL command to stop confusion with other command types
+### Searching for a function
 
-`code001` - Specifies what overall code insert it is (e.g. Loop, Echo, Set a Variable etc)
+The search feature allows you to search for a function by just its type. You are propmted to enter in a keyword, which should be the function type. It will then search for all functions with that type and display it like this, `[result number] - bevl_[funtion type][count] - [function data]`, so in our click example it would output `[1] - bevl_Click11 - 11,10`. At the bottom of the page after a search it displays the total amount of search results found.
 
-`loop` - Specifies the type of the cfunction (loop in this case)
+### Compiling
 
-`code001` - Specifies what line of code for the functions commmand it is
+When compiling a project, the system first does some validatoin to make sure BatchedEngine and BEVL versions are compatible and that the project contains at least some functions. It then checks for any plugins that exist and imports them if so. It then reads the total amount of lines and loops through it checking for each function type. If it finds one, it loads its config and data and writes to the compiled file with the reuquired data. Once all checks are complete it re-validates everything and writes an output log to see data on the compile. It then launches the compiled file.
 
-This specific command can vary greatly and have other subcommands (e.g. data_meta)
-
-Note: In BatchedEngine there was a 10-20 limit on how many of each function could be made imposed until a more open system could be coded.
-
-This seems complicated but makes it easy for the program to read the code and search for it with the inbuilt search function.  It relies heavily of `if` commands to determine the code.
-
-The folowing would be an example of real code if a user searched for the above loop command using the search function (this is just experimental and hasnt been tested). This is used as the user has to edit specific functions by going to thier reference name (e.g bevl_code001_loop_001). Ading in a search massively helps people find their functions:
-
-`:search`
-
-`set srchloop=0`
-
-`set srchresults=0`
-
-`echo Search for %search% returned the following:`
-
-`echo.`
-
-`:searchloop`
-
-`set /a srchloop+=1`
-
-`if "%srchloop%"=="10" got search_done`
-
-`if file exists C:\BatchedEngine\Projects\example\code\bevl_code%srchloop%_%search%1 (`
-
-`set snippet=bevl_code%srchloop%_%search%1`
-
-`echo %srchloop% - bevl_code%srchloop%_%search%1`
-
-`set /a srchresults+=1`
-
-`)`
-
-`if file exists C:\BatchedEngine\Projects\example\code\bevl_code%srchloop%_%search%2 (`
-
-`set snippet=bevl_code%srchloop%_%search%2`
-
-`echo %srchloop% - bevl_code%srchloop%_%search%2`
-
-`set /a srchresults+=1`
-
-`)`
-
-`[until bevl_code%srchloop%_loop10 of course]`
-
-`goto searchloop`
-
-`:search_done`
-
-`echo.`
-
-`echo The search returned %srchresults% results.`
-
-
-The above code would return the following:
-
-`Search for loop returned the following:`
-
-``
-
-`1 - bevl_code1_loop1`
-
-``
-
-`The search returned 1 results.`
-
-That is the basic principal of how the system would work. Users would have to manually enter in the `bevl_code1_loop1` and the system woul read its meta and settings files and would then know how to deal with it and what editing options to display to the user.
-
-The compile system would use a catalouge of all these functions (complex, lets not get into that) that would find out every function that existed and what order it was in and based of the entries for that, it would write the file. for out abve loop it would compile to this (would be called woth `call :loop1`):
-
-`:loop1`
-
-`set loop1=0`
-
-`:loop1loop`
-
-`set /a loop1+=1`
-
-`if %loop1% == 10 GOTO:eof`
-
-`echo hello`
-
-`echo test`
-
-`goto loop1loop`
-
-
-While this system was never finished it was deeply coded and set up. I may finish this project for fun in several years or whenever I can be bothered to waste my time on this dying language. I hope this might give instpiration to someone on how to coe their own system or whatever. (P.S I'm genuinely fucking tired of this project just laying around in my text editors, its meaningless and serves very litte use as well, the only possibly useful thing would be the BEVL system)
+The file is compiled to `C:\BatchedEngine\Projects\[projectname]\compile\[projectname].bat` and creates a subdirectory called `be_data` which stores all the plugin data/AHK commands and other required external assets.
