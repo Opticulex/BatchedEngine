@@ -1,6 +1,6 @@
 # BatchedEngine
 
-**Installing: Just run BatchedEngine.bat anywhere and it will install. All program data is stored in C:\BatchedEngine** is messy!
+**Installing: Just run BatchedEngine.bat anywhere and it will install. All program data is stored in C:\BatchedEngine**
 
 Since the code is hidden from the user, the user only sees entries for basic stuff such as text and coordinates, with descritions on what the function does and how to use it. Each individual snipped of code is called a 'function'.
 
