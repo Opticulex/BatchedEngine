@@ -10,9 +10,9 @@ The project was abandoned a long time ago but it is occasionally developed. The 
 
 ## Projects
 
-When you create a new project it creates the core files in `C:\BatchedEngine\Projects\[projectname]\data` which include the `config.bat` file which stores all the data about the project (Compatible BatchedEngine and BEVL versions, Date created and other data) and some various config files to set the state of the project (e.g. Just created, Closed, Opened, Editing, In-Progress etc). It also creates the `code` folder for storing all hte actual project data and the `compile` folder for the finished product.
+When you create a new project it creates the core files in `C:\BatchedEngine\Projects\[projectname]\data` which include the `config.bat` file which stores all the data about the project (Compatible BatchedEngine and BEVL versions, Date created and other data) and some various config files to set the state of the project (e.g. Just created, Closed, Opened, Editing, In-Progress etc). It also creates the `code` folder for storing all the actual project data and the `compile` folder for the finished product.
 
-While in the editor you can add/edit/delete and search for various functions. You can add preset Batch/AHK or add in custom commands. All project data is controlled by BEVL.
+While in the editor you can add/edit/delete and search for various functions. You can add preset Batch/AHK or add in custom commands. All project data is controlled by BEVL. You can also compile the project into a running file.
 
 ## BEVL
 
