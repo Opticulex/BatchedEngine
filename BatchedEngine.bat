@@ -1,4 +1,5 @@
 @echo Off
+setlocal disabledelayedexpansion
 :: Wish you luck exploring this mess!- Opticulex
 :START
 REM ------------------------------------------------------------------------------------------------------------------------------ Very Start of Program
@@ -64,6 +65,15 @@ if not exist C:\BatchedEngine\BatchedEngine goto INSTALL_FAIL
 echo [%time%] [INSTALL] Program is installable. Resuming install.
 echo [%time%] [INSTALL] Making folder "Plugins"
 md Plugins
+cd Plugins
+md BE_Enhanced
+cd..
+(echo | set /p=^s^e^t ^p^l^u^g^i^n^_^n^a^m^e^=^B^a^t^c^h^e^d^E^n^g^i^n^e ^E^n^h^a^n^c^e^d)>>C:\BatchedEngine\Plugins\BE_Enhanced\plugin_info.bat
+echo.>>C:\BatchedEngine\Plugins\BE_Enhanced\plugin_info.bat
+(echo | set /p=^s^e^t ^p^l^u^g^i^n^_^c^r^e^a^t^o^r^=^B^a^t^c^h^e^d^E^n^g^i^n^e)>>C:\BatchedEngine\Plugins\BE_Enhanced\plugin_info.bat
+echo.>>C:\BatchedEngine\Plugins\BE_Enhanced\plugin_info.bat
+(echo | set /p=^s^e^t ^p^l^u^g^i^n^_^v^e^r^=^v^1^.^0^.^0)>>C:\BatchedEngine\Plugins\BE_Enhanced\plugin_info.bat
+(echo | set /p=^e^c^h^o ^[^B^a^t^c^h^e^d^E^n^g^i^n^e ^E^n^h^a^n^c^e^d ^r^u^n^n^i^n^g^!^])>>C:\BatchedEngine\Plugins\BE_Enhanced\plugin_data.bat
 echo [%time%] [INSTALL] Making folder "Resources"
 md Resources
 echo [%time%] [INSTALL] Making folder "Projects"
@@ -206,9 +216,17 @@ echo [%time%] [INSTALL] DOWNLOADED ahk with %ahktry% tries..
 start ahk-install.exe
 
 
-echo [%time%] [INSTALL] (DISABLED) Making file "nodejs.vbs"
+
 echo [%time%] [INSTALL] Setting DIR "C:\BatchedEngine\Prefs"
 cd C:\BatchedEngine\Prefs
+echo [%time%] [INSTALL] Setting all user settings...
+echo. > NOSTARTUPERROR.becf
+del RECOVERY_AUTOLOAD.becf
+del RECOVERY.becf
+del author.bat
+del NOINTERNET.becf
+del AUTOUPDATE.becf
+echo [%time%] [INSTALL] (DISABLED) Making file "nodejs.vbs"
 echo [%time%] [INSTALL] DISABLED Making file "NOSTARTUPERROR.becf"
 echo [NOSTARTUPERROR=TRUE] > NOSTARTUPERROR.becf
 echo [%time%] [INSTALL] Setting DIR "C:\BatchedEngine\Prefs"
@@ -234,7 +252,7 @@ echo. >> C:\BatchedEngine\Log\INPUTDATA.log
 echo [%time%] [INSTALL] Program install failed. Uh oh..
 color 1f
 cls
-echo €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ = BatchedEngine Installation = €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+echo √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ = BatchedEngine Installation = √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ
 echo.
 echo BatchedEngine was not successfully instslled on your system. Please try again.
 echo Please make sure you are running BatchedEngine with administrator priveleges.
@@ -316,7 +334,7 @@ cls
 cd C:/BatchedEngine/Prefs/
 call CRASH.bat
 cd C:/BatchedEngine/
-echo €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ = STARTUP WARNING = €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+echo √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ = STARTUP WARNING = √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ
 echo The program crashed on last use. Crash Type: %ERRTYPE% Occurence: %ERRDATE%
 echo Message: %ERRMSG%
 echo Status of Error: %ERRSTATUS%
@@ -387,7 +405,7 @@ if exist NOSTARTUPERROR.becf goto MAKE_TEMP
 if "%firstuse%"=="1" goto MAKE_TEMP
 cd C:\BatchedEngine\Resources
 cls
-echo €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ = STARTUP WARNING = €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+echo √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ = STARTUP WARNING = √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ
 echo The program did not shut down correctly. Please make sure you do not press the exit button to shut 
 echo the program down but instead use the exit command (X) on a menu that contains it. You can disable 
 echo this message buy going to Settings ^> Startup Settings ^> Toggle Startup Errors.
@@ -420,7 +438,7 @@ cls
 color 1f
 set MAINMENU=NULL
 mode 100,30
-echo €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ = BatchedEngine Main Menu = €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+echo √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ = BatchedEngine Main Menu = √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ
 echo                               -=  N         New Project         =-
 echo                               -=  O        Open Project         =-
 echo                               -=  C          BE Cloud           =-
@@ -476,7 +494,7 @@ echo # Location: !NEW (Setting name of New file) >> C:\BatchedEngine\Log\INPUTDA
 echo # %DATE% %TIME% >> C:\BatchedEngine\Log\INPUTDATA.log
 echo. >> C:\BatchedEngine\Log\INPUTDATA.log
 cls
-echo €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ = BatchedEngine New File = €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+echo √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ = BatchedEngine New File = √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ
 echo.
 echo                               -=      Please name your file     =-
 echo                               -=  B           Cancel            =-
@@ -490,23 +508,21 @@ if "%!NEWFILE%"=="b" goto MAIN_MENU
 echo # Location: NEW2 (Making New File) >> C:\BatchedEngine\Log\INPUTDATA.log
 echo # %DATE% %TIME% >> C:\BatchedEngine\Log\INPUTDATA.log
 echo. >> C:\BatchedEngine\Log\INPUTDATA.log
-echo Please wait...
-echo [BatchedEngine Editor %version%]
-echo [%time%] Logging creation in "INPUTDATA.log"
 echo # Creating new file... >> C:\BatchedEngine\Log\INPUTDATA.log
 echo # Setting up config.bat file >> C:\BatchedEngine\Log\INPUTDATA.log
 echo # %DATE% %TIME% >> C:\BatchedEngine\Log\INPUTDATA.log
 echo. >> C:\BatchedEngine\Log\INPUTDATA.log
-echo [%time%] Setting DIR to "C:\BatchedEngine\Projects"
 cd C:\BatchedEngine\Projects
-echo [%time%] Checking for previous versions of file
-echo [%time%] Cancelling creation if "C:\BatchedEngine\Projects\%!NEWFILE%" exists
 if exist "C:\BatchedEngine\Projects\%!NEWFILE%" goto NEW3
-echo [%time%] Creating Project folders and config.bat...
 md %!NEWFILE% & cd "C:\BatchedEngine\Projects\%!NEWFILE%"
+md compile
+md plugins
+md code & cd C:\BatchedEngine\Projects\%!NEWFILE%\code
+(echo | set /p=^s^e^t ^t^o^t^a^l^_^l^i^n^e^s^=^0)>>bevl_config.bat
+cd ..
 md data & cd C:\BatchedEngine\Projects\%!NEWFILE%\data
-echo BATCHED ENGINE CONFIG FILE FOR PROJECT %!NEWFILE%> config.bat
-echo DO NOT modifiy anything here as it will break the file! >> config.bat
+echo :: BATCHED ENGINE CONFIG FILE FOR PROJECT %!NEWFILE%> config.bat
+echo :: DO NOT modifiy anything here as it will break the file! >> config.bat
 echo. >> config.bat
 echo set FILE_CREATIONDATE=%date% %time%>> config.bat
 echo set FILE_CREATIONTOKEN=%random%%random%%random%>> config.bat
@@ -523,13 +539,12 @@ echo ^:: Token%FILE_CREATIONTOKEN%; BE%version%; BEVL%bevlversion% >> db.bat
 REM FILE_STATUS / 0=created never opened, 1=opened or used, 3=disabled, 4=other
 echo set FILE_STATUS=0 > status.bat
 if not exist config.bat goto NEWFAIL
-echo [%time%] Creation sucessful, returning...
 goto OPEN
 :NEWFAIL
 echo # Location: NEWFAIL (Creation of New File failed) >> C:\BatchedEngine\Log\INPUTDATA.log
 echo # %DATE% %TIME% >> C:\BatchedEngine\Log\INPUTDATA.log
 echo. >> C:\BatchedEngine\Log\INPUTDATA.log
-echo €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ = BatchedEngine New File = €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+echo √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ = BatchedEngine New File = √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ
 echo Error: "%!NEWFILE%" was not created. Could not make files.
 echo Error: Make sure you are running this program as an Administrator.
 echo.
@@ -548,7 +563,7 @@ echo # Location: NEW3 (New File "name" already exists) >> C:\BatchedEngine\Log\I
 echo # %DATE% %TIME% >> C:\BatchedEngine\Log\INPUTDATA.log
 echo. >> C:\BatchedEngine\Log\INPUTDATA.log
 cls
-echo €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ = BatchedEngine New File = €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+echo √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ = BatchedEngine New File = √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ
 echo Error: "%!NEWFILE%" alreay exists. Please Choose a different name or delete the old one.
 echo.
 echo                               -=      Please name your file     =-
@@ -566,9 +581,9 @@ echo # Location: OPEN_VIEW (Viewing DIR of projects) >> C:\BatchedEngine\Log\INP
 echo # %DATE% %TIME% >> C:\BatchedEngine\Log\INPUTDATA.log
 echo. >> C:\BatchedEngine\Log\INPUTDATA.log
 cls
-echo €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ = BatchedEngine Open File = €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+echo √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ = BatchedEngine Open File = √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ
 echo.
-dir C:\BatchedEngine\Projects\
+dir C:\BatchedEngine\Projects\ /b
 echo.
 echo Press any key to return...
 pause>nul
@@ -585,7 +600,7 @@ echo # %DATE% %TIME% >> C:\BatchedEngine\Log\INPUTDATA.log
 echo. >> C:\BatchedEngine\Log\INPUTDATA.log
 set OPNFILE=NULL
 cls
-echo €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ = BatchedEngine Open File = €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+echo √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ = BatchedEngine Open File = √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ
 echo.
 echo                               -=       Name of file to open     =-
 echo                               -=  V       View projects         =-
@@ -607,55 +622,37 @@ echo. >> C:\BatchedEngine\Log\INPUTDATA.log
 echo # Location: !OPEN_FILE (Searching for openable file "%OPNFILE%") >> C:\BatchedEngine\Log\INPUTDATA.log
 echo # %DATE% %TIME% >> C:\BatchedEngine\Log\INPUTDATA.log
 echo. >> C:\BatchedEngine\Log\INPUTDATA.log
-echo [%time%] Searching for file..
 cd C:\BatchedEngine\Projects
 if exist "C:\BatchedEngine\Projects\%OPNFILE%" set OPNFILEe=1
 if not exist "C:\BatchedEngine\Projects\%OPNFILE%" set OPNFILEe=0
-echo [%time%] File %OPNFILE% found!
 if "%OPNFILEe%"=="1" goto OPEN_FILE1
 if "%OPNFILEe%"=="0" goto OPEN_FILEfail
 :OPEN_FILE1
 echo # Location: OPEN_FILE1 (Found "%OPNFILE%") >> C:\BatchedEngine\Log\INPUTDATA.log
 echo # %DATE% %TIME% >> C:\BatchedEngine\Log\INPUTDATA.log
 echo. >> C:\BatchedEngine\Log\INPUTDATA.log
-echo [%time%] File found. Opening...
 cd "C:\BatchedEngine\Projects\%OPNFILE%\data"
-echo [%time%] Calling config.bat
 call config.bat
 :EDITOR
 echo # Location: EDITOR (VERY start of opening the editor) >> C:\BatchedEngine\Log\INPUTDATA.log
 echo # %DATE% %TIME% >> C:\BatchedEngine\Log\INPUTDATA.log
 echo. >> C:\BatchedEngine\Log\INPUTDATA.log
-echo [%time%] Converting config.bat variables into EDIT variables
-echo [%time%] CONVERT OPNFILE to EDITname (1/4)
 set EDITname=%OPNFILE%
-echo [%time%] CONVERT FILE_AUTHOR to EDITauth (2/4)
 set EDITauth=%FILE_AUTHOR%
-echo [%time%] CONVERT FILE_CREATIONTOKEN to EDITtokn (3/4)
 set EDITtokn=%FILE_CREATIONTOKEN%
-echo [%time%] CONVERT FILE_CREATIONDATE to EDITtime (4/4)
 set EDITtime=%FILE_CREATIONDATE%
 if "%EDITauth%"=="" set EDITauth=null
-echo [%time%] Verifiying file and config exists..
-echo [%time%] CHECK config.bat (1/4)
 if not exist "C:\BatchedEngine\Projects\%OPNFILE%\data\config.bat" goto OPEN_FILEfail1
-echo [%time%] CHECK db.bat (2/4)
 if not exist "C:\BatchedEngine\Projects\%OPNFILE%\data\db.bat" goto OPEN_FILEfail1
-echo [%time%] CHECK status.bat (3/4)
 if not exist "C:\BatchedEngine\Projects\%OPNFILE%\data\status.bat" goto OPEN_FILEfail1
-echo [%time%] CHECK noaccess.bat (4/4)
-echo [%time%] Checking file status (noaccess.bat exists)
 if exist "C:\BatchedEngine\Projects\%OPNFILE%\data\noaccess.bat" goto OPEN_FILEfail2
 :EDIT_RECOVERY
 echo # Location: EDIT_RECOVERY (Preparing "%OPNFILE%" recovery files) >> C:\BatchedEngine\Log\INPUTDATA.log
 echo # %DATE% %TIME% >> C:\BatchedEngine\Log\INPUTDATA.log
 echo. >> C:\BatchedEngine\Log\INPUTDATA.log
 cd C:\BatchedEngine\Recovery
-echo [%time%] BRUTALLY KILLING file recoverData.bat
 if exist recoveryData.bat del recoveryData.bat
-echo [%time%] BRUTALLY KILLING file recoverLocation.bat
 if exist recoveyLocation.bat del recoveyLocation.bat
-echo [%time%] Creating recovery file...
 echo :: Recovery data updated %time% on %date% > recoveryData.bat
 echo set RECLocation=C:\BatchedEngine\Projects\%OPNFILE%\ >> recoveryData.bat
 echo set RECConfigLocation=C:\BatchedEngine\Projects\%OPNFILE%\data >> recoveryData.bat
@@ -664,32 +661,26 @@ echo set RECProjectAuth=%EDITauth%>> recoveryData.bat
 echo set RECProjectToken=%EDITtokn%>> recoveryData.bat
 echo set RECProjectTime=%EDITtime%>> recoveryData.bat
 echo set RECLoc=EDIT_RECOVERY>> recoveryLocation.bat
-:AHK_CHECK
-cls
-echo [WARINING] AutoHotkey is not installed. Please install and press ANY KEY to try again.
-:AHK_CHECK1
-if exist "C:\Program Files\AutoHotkey" goto EDIT_MENU
-pause>nul
-goto AHK_CHECK1
 :EDIT_MENU
+cd C:\BatchedEngine\Projects\%OPNFILE%\code\
 @Echo off
 echo # Location: EDIT_MENU (Main Menu of Editor) >> C:\BatchedEngine\Log\INPUTDATA.log
 echo # %DATE% %TIME% >> C:\BatchedEngine\Log\INPUTDATA.log
 echo. >> C:\BatchedEngine\Log\INPUTDATA.log
 set EDITOR=NULL
 cls
-echo €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ = BatchedEngine Editor = €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+echo √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ = BatchedEngine Editor = √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ
 echo Batched Engine %version% - Editor - Menu - %EDITname%
 echo.
 echo               -=            SETTINGS        ^|             EDITING             =-
 echo               -=       A File Properties    ^|     1 Add a function            =-
-echo               -=       B View Code          ^|     2 Add a template            =-
+echo               -=       B View Code          ^|     2 Edit a function           =-
 echo               -=       C View Files         ^|     3 Remove function           =-
 echo               -=       D View help          ^|     4 Insert an external file   =-
-echo               -=       E Settings           ^|     5 Debug                     =-
-echo               -=       F Plugin Manager     ^|     6 Test run                  =-
+echo               -=       E Settings           ^|     5 Debug Issues              =-
+echo               -=       F Plugin Manager     ^|     6 Search for function       =-
 echo               -=       G Delete Project     ^|     7 Compile Settings          =-
-echo               -=       X Exit Editor        ^|     8 Compile project           =-
+echo               -=       X Exit Editor        ^|     8 Compile and Run           =-
 echo               ------------------------------------------------------------------
 echo               -=                      Select an Option:                       =-
 echo.
@@ -723,7 +714,7 @@ pause
 
 :EDIT_A
 cls
-echo €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ = BatchedEngine Editor = €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+echo √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ = BatchedEngine Editor = √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ
 echo Batched Engine %version% - Editor - File Properties - %EDITname%
 echo.
 echo This file is running Batched Engine %FILE_VERSION% (%FILE_BUILD%; %FILE_BEVL_VERSION%)
@@ -738,27 +729,28 @@ goto EDIT_MENU
 
 :EDIT_B
 cls
-echo €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ = BatchedEngine Editor = €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+echo √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ = BatchedEngine Editor = √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ
 echo Batched Engine %version% - Editor - View Code - %EDITname%
 echo.
-echo Press any key to return to the menu...
+echo All the functions and code/commands in the project:
+cd C:\BatchedEngine\Projects\%OPNFILE%\code\
+dir /a:d /b
 pause>nul
 goto EDIT_MENU
 
 
 :EDIT_C
 cls
-echo €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ = BatchedEngine Editor = €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+echo √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ = BatchedEngine Editor = √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ
 echo Batched Engine %version% - Editor - View Files - %EDITname%
 echo.
-echo Press any key to return to the menu...
-pause>nul
+::start C:\BatchedEngine\Projects\example\code\
 goto EDIT_MENU
 
 
 :EDIT_D
 cls
-echo €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ = BatchedEngine Editor = €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+echo √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ = BatchedEngine Editor = √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ
 echo Batched Engine %version% - Editor - Help - %EDITname%
 echo.
 echo Press any key to return to the menu...
@@ -769,7 +761,7 @@ goto EDIT_MENU
 
 :EDIT_E
 cls
-echo €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ = BatchedEngine Editor = €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+echo √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ = BatchedEngine Editor = √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ
 echo Batched Engine %version% - Editor - Settings - %EDITname%
 echo.
 echo Press any key to return to the menu...
@@ -779,17 +771,20 @@ goto EDIT_MENU
 
 :EDIT_F
 cls
-echo €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ = BatchedEngine Editor = €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+echo √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ = BatchedEngine Editor = √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ
 echo Batched Engine %version% - Editor - Plugin Manager - %EDITname%
 echo.
-echo Press any key to return to the menu...
+echo All Installed Plugins:
+echo.
+cd C:\BatchedEngine\Plugins
+dir /a:d /b
 pause>nul
 goto EDIT_MENU
 
 
 :EDIT_G
 cls
-echo €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ = BatchedEngine Editor = €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+echo √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ = BatchedEngine Editor = √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ
 echo Batched Engine %version% - Editor - Delete Project - %EDITname%
 echo.
 echo Deleting the file makes it inaccessible but does not delete it. To delete it, go to the files
@@ -811,7 +806,7 @@ goto EDIT_G
 :DISABLE_FILE
 cls
 set deletefile=null
-echo €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ = BatchedEngine Editor = €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+echo √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ = BatchedEngine Editor = √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ
 cd "C:\BatchedEngine\Projects\%OPNFILE%\data\"
 echo Press ENTER to PERMANENTLY disable the file.
 echo Press "X" and ENTER to return WITHOUT touching the file.
@@ -826,7 +821,7 @@ goto MAIN_MENU
 
 :EDIT_X
 cls
-echo €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ = BatchedEngine Editor = €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+echo √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ = BatchedEngine Editor = √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ
 echo Batched Engine %version% - Editor - Menu - %EDITname%
 cd C:\BatchedEngine\Recovery
 del recoveryData.bat
@@ -837,18 +832,18 @@ goto MAIN_MENU
 cls
 set EDIT_1=NULL
 cls
-echo €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ = BatchedEngine Editor = €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+echo √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ = BatchedEngine Editor = √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ
 echo Batched Engine %version% - Editor - Add Function - %EDITname%
 echo.
-echo               -=       A Add a Shell        ^|     1                           =-
-echo               -=       B Add Click command  ^|     2                           =-
-echo               -=       C Add Type command   ^|     3                           =-
-echo               -=       D Add Image Search   ^|     4                           =-
-echo               -=       E Add Pixel Search   ^|     5                           =-
-echo               -=       F Add Delays/Timers  ^|     6                           =-
-echo               -=       G Add Other function ^|     7                           =-
-echo               -=       H Add CMD functions  ^|     8                           =-
-echo               -=       I Add custom AHK's   ^|     X Go back to edit menu      =-
+echo               -=       A Add a Shell        ^|     1 Add an output             =-
+echo               -=       B Add Click command  ^|     2 Add an input              =-
+echo               -=       C Add Type command   ^|     3 Ad/set a variable         =-
+echo               -=       D Add a Mouse Move   ^|     4 Add/set a variable        =-
+echo               -=       E Add Download file  ^|     5 Add file actions          =-
+echo               -=       F Add Delay/Timer    ^|     6 Display Message Box       =-
+echo               -=       G Add CMD functions  ^|     7 Help with adding commands =-
+echo               -=       H Add AHK functions  ^|     8 Delete all functions      =-
+echo               -=       I Add Other function ^|     X Go back to edit menu      =-
 echo               ------------------------------------------------------------------
 echo               -=                      Select an Option:                       =-
 echo.
@@ -886,118 +881,180 @@ cd C:\BatchedEngine\Projects\%EDITname%
 
 :EDIT_1_A
 cls
-echo €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ = BatchedEngine Editor = €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+echo √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ = BatchedEngine Editor = √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ
 echo Batched Engine %version% - Editor - Add Shell - %EDITname%
 echo.
-echo The shell is the main part of the project that runs and controls everything else. The project can't 
-echo function without a shell and there can only be one shell. The shell is a .BAT file. This function
-echo requires the BEVL compiler "%FILE_BEVL_VERSION%".
-echo. 
-echo Press any key to return to the menu...
-pause>nul
+echo The shell is the main part of the project that contains compile and setup info. This function
+echo requires the BEVL compiler "%FILE_BEVL_VERSION%". Press enter to set the shell up.
+echo.
+call :bevl_refresh
+set entrychoice=nullValue
+set /p entrychoice=^>
+if "%entrychoice%"=="b" goto EDIT_1
+if "%entrychoice%"=="B" goto EDIT_1
+if "%entrychoice%"=="nullValue" goto EDIT_1
+if not exist C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_shell (
+	md C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_shell
+	(echo | set /p=^s^e^t ^b^e^v^l^_^n^a^m^e^=^S^h^e^l^l)>>C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_shell\data.bat
+	echo.>>C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_shell\data.bat
+	(echo | set /p=^s^e^t ^b^e^v^l^_^m^e^t^a^=^P^r^o^g^r^a^m ^S^h^e^l^l)>>C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_shell\data.bat
+	echo.>>C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_shell\data.bat
+	(echo | set /p=^s^e^t ^b^e^v^l^_^c^o^m^p^i^l^e^v^e^r^=%FILE_BEVL_VERSION%)>>C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_shell\data.bat
+	echo.>>C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_shell\data.bat
+	(echo | set /p=^s^e^t ^b^e^v^l^_^c^o^m^p^i^l^e^c^m^t^=^t^r^u^e)>>C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_shell\data.bat
+	echo.>>C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_shell\data.bat
+	(echo | set /p=^s^e^t ^b^e^v^l^_^c^o^m^p^i^l^e^t^y^p^e^=^e^x^t^e^n^d^e^d)>>C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_shell\data.bat
+) else (
+	echo.
+	echo                               ------------------------------------
+	echo                               -=     A Shell already exists     =-
+	echo                               ------------------------------------
+	ping 1.1.1.1 -n 1 -w 1000 > nul
+)
 goto EDIT_1
 
 :EDIT_1_B
 cls
-echo €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ = BatchedEngine Editor = €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+echo √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ = BatchedEngine Editor = √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ
 echo Batched Engine %version% - Editor - Add Click - %EDITname%
 echo.
 echo A click command is an AutoHotkey command that can perform a physical click or scroll on the
 echo selected part of the screen (using coordinates).
 echo.
-echo Press any key to return to the menu...
-pause>nul
+call :bevl_refresh
+set entrychoice=nullValue
+echo                               -=           Coordinates:         =-
+echo                               -=  B      Back to Main Menu      =-
+set /p entrychoice=^>
+echo.
+if "%entrychoice%"=="b" goto EDIT_1
+if "%entrychoice%"=="B" goto EDIT_1
+if "%entrychoice%"=="nullValue" goto EDIT_1
+md C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_click%added_lines%\
+(echo | set /p=^s^e^t ^b^e^v^l^_^d^a^t^a^=%entrychoice%)>>C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_click%added_lines%\data.bat
+echo.>>C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_click%added_lines%\data.bat
+(echo | set /p=^s^e^t ^b^e^v^l^_^m^e^t^a^=^C^l^i^c^k ^C^o^m^m^a^n^d)>>C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_click%added_lines%\data.bat
+del C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_config.bat
+(echo | set /p=^s^e^t ^t^o^t^a^l^_^l^i^n^e^s^=%added_lines%)>>C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_config.bat
 goto EDIT_1
 
 :EDIT_1_C
 cls
-echo €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ = BatchedEngine Editor = €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+echo √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ = BatchedEngine Editor = √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ
 echo Batched Engine %version% - Editor - Add Type - %EDITname%
 echo.
 echo The Type command is an AutoHotkey command that allows you to type letters, words, hotkeys and
 echo other keyboard related stuff atomatically.
 echo.
-echo Press any key to return to the menu...
-pause>nul
+call :bevl_refresh
+set entrychoice=nullValue
+echo                               -=           Text to type:        =-
+echo                               -=  B      Back to Main Menu      =-
+set /p entrychoice=^>
+echo.
+if "%entrychoice%"=="b" goto EDIT_1
+if "%entrychoice%"=="B" goto EDIT_1
+if "%entrychoice%"=="nullValue" goto EDIT_1
+md C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_type%added_lines%\
+(echo | set /p=^s^e^t ^b^e^v^l^_^d^a^t^a^=%entrychoice%)>>C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_type%added_lines%\data.bat
+echo.>>C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_type%added_lines%\data.bat
+(echo | set /p=^s^e^t ^b^e^v^l^_^m^e^t^a^=^T^y^p^e ^C^o^m^m^a^n^d)>>C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_type%added_lines%\data.bat
+del C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_config.bat
+(echo | set /p=^s^e^t ^t^o^t^a^l^_^l^i^n^e^s^=%added_lines%)>>C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_config.bat
 goto EDIT_1
 
 :EDIT_1_D
 cls
-echo €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ = BatchedEngine Editor = €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
-echo Batched Engine %version% - Editor - Add Image Search - %EDITname%
+echo √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ = BatchedEngine Editor = √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ
+echo Batched Engine %version% - Editor - Add Mouse Move - %EDITname%
 echo.
-echo The Image Search function is a complex AutoHotkey command that can search for images within a
-echo selected coordinate range. The search images should be in the .BMP quality (24bit).
-echo
+echo A mouse move allows you to move the mouse without clicking or pressing.
 echo.
-echo Press any key to return to the menu...
-pause>nul
+call :bevl_refresh
+set entrychoice=nullValue
+echo                               -=           Coordinates:         =-
+echo                               -=  B      Back to Main Menu      =-
+set /p entrychoice=^>
+echo.
+if "%entrychoice%"=="b" goto EDIT_1
+if "%entrychoice%"=="B" goto EDIT_1
+if "%entrychoice%"=="nullValue" goto EDIT_1
+md C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_mousemove%added_lines%\
+(echo | set /p=^s^e^t ^b^e^v^l^_^d^a^t^a^=%entrychoice%)>>C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_mousemove%added_lines%\data.bat
+echo.>>C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_mousemove%added_lines%\data.bat
+(echo | set /p=^s^e^t ^b^e^v^l^_^m^e^t^a^=^M^o^u^s^e^m^o^v^e ^C^o^m^m^a^n^d)>>C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_mousemove%added_lines%\data.bat
+del C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_config.bat
+(echo | set /p=^s^e^t ^t^o^t^a^l^_^l^i^n^e^s^=%added_lines%)>>C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_config.bat
 goto EDIT_1
+
 
 :EDIT_1_E
 cls
-echo €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ = BatchedEngine Editor = €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
-echo Batched Engine %version% - Editor - Add Pixel Search - %EDITname%
+echo √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ = BatchedEngine Editor = √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ
+echo Batched Engine %version% - Editor - Add Download file - %EDITname%
 echo.
-echo The Pixel Search function is a complex AutoHotkey command that, similar to the "Image Search"
-echo command, can search for single pixel colors in a selected coordinate range. This command has
-echo plenty of extra features and can sometimes be a lighter alternative to Image Search.
+echo You can use this function to download a file from the internet.
 echo.
-echo Press any key to return to the menu...
-pause>nul
+call :bevl_refresh
+set entrychoice=nullValue
+echo                               -=          Download Link:        =-
+echo                               -=  B      Back to Main Menu      =-
+set /p entrychoice=^>
+echo.
+if "%entrychoice%"=="b" goto EDIT_1
+if "%entrychoice%"=="B" goto EDIT_1
+if "%entrychoice%"=="nullValue" goto EDIT_1
+md C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_download%added_lines%\
+(echo | set /p=^s^e^t ^b^e^v^l^_^d^a^t^a^=%entrychoice%)>>C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_download%added_lines%\data.bat
+echo.>>C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_download%added_lines%\data.bat
+(echo | set /p=^s^e^t ^b^e^v^l^_^m^e^t^a^=^D^o^w^n^l^o^a^d)>>C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_download%added_lines%\data.bat
+del C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_config.bat
+(echo | set /p=^s^e^t ^t^o^t^a^l^_^l^i^n^e^s^=%added_lines%)>>C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_config.bat
 goto EDIT_1
 
 :EDIT_1_F
 cls
-echo €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ = BatchedEngine Editor = €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
-echo Batched Engine %version% - Editor - Add Delays/Timers - %EDITname%
+echo √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ = BatchedEngine Editor = √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ
+echo Batched Engine %version% - Editor - Add Delay - %EDITname%
 echo.
-echo AutoHotkey delays and timers allow you to delay the program for a set amount of time to wait, for
-echo example, the creation of a file or a webpage or menu to load.
+echo Delays allow you to delay the program for a certain amount of time. This is useful if you want to
+echo make a task run ever minute or so.
 echo.
-echo Press any key to return to the menu...
-pause>nul
+call :bevl_refresh
+set entrychoice=nullValue
+echo                               -=          Delay (seconds):      =-
+echo                               -=  B      Back to Main Menu      =-
+set /p entrychoice=^>
+echo.
+if "%entrychoice%"=="b" goto EDIT_1
+if "%entrychoice%"=="B" goto EDIT_1
+if "%entrychoice%"=="nullValue" goto EDIT_1
+md C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_delay%added_lines%\
+(echo | set /p=^s^e^t ^b^e^v^l^_^d^a^t^a^=%entrychoice%)>>C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_delay%added_lines%\data.bat
+echo.>>C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_delay%added_lines%\data.bat
+(echo | set /p=^s^e^t ^b^e^v^l^_^m^e^t^a^=^D^e^l^a^y ^C^o^m^m^a^n^d)>>C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_delay%added_lines%\data.bat
+del C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_config.bat
+(echo | set /p=^s^e^t ^t^o^t^a^l^_^l^i^n^e^s^=%added_lines%)>>C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_config.bat
 goto EDIT_1
 
 :EDIT_1_G
-if not "%EDIT1GLINES%"=="0" goto EDIT_1_G_1
-set EDIT1G=NULL
-set EDIT1GLINES=0
 cls
-echo €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ = BatchedEngine Editor = €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+echo √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ = BatchedEngine Editor = √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ
 echo Batched Engine %version% - Editor - Add Other Function - %EDITname%
 echo.
-echo Manually add another Auto Hotkey command that is not in the quick-selection menu.
-echo.
-echo Press any key to return to the menu...
-pause>nul
-goto EDIT_1
-
-
-
 
 :EDIT_1_H
 cls
-echo €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ = BatchedEngine Editor = €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+echo √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ = BatchedEngine Editor = √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ
 echo Batched Engine %version% - Editor - Add CMD fucntion - %EDITname%
 echo.
-echo Add other command prompt functions to the shell of the program.
-echo.
-echo Press any key to return to the menu...
-pause>nul
-goto EDIT_1
 
 :EDIT_1_I
 cls
-echo €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ = BatchedEngine Editor = €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+echo √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ = BatchedEngine Editor = √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ
 echo Batched Engine %version% - Editor - Add other AHK script - %EDITname%
 echo.
-echo Import a ready-made Auto Hotkey script.
-echo.
-echo Press any key to return to the menu...
-pause>nul
-goto EDIT_1
-
+goto EDIT_MENU
 
 
 
@@ -1005,51 +1062,434 @@ goto EDIT_1
 
 :EDIT_2
 cls
-echo €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ = BatchedEngine Editor = €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
-echo Batched Engine %version% - Editor - Menu - %EDITname%
+echo √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ = BatchedEngine Editor = √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ
+set search=searchNullValue
+echo Batched Engine %version% - Editor - Edit Function - %EDITname%
+echo.
+echo                               -=           -- EDIT --           =-
+echo                               -=                                =-
+echo                               -=    Name of function to edit:   =-
+echo                               -=     (Use Search to find it)    =-
+echo                               -=  B      Back to Main Menu      =-
+echo                               ------------------------------------
+echo                               -=         Select an Option:      =-
+echo.
+set /p search=^>
+if "%search%"=="searchNullValue" goto EDIT_2
+if "%search%"=="B" goto EDIT_MENU
+if "%search%"=="b" goto EDIT_MENU
+set edit2=%search%
+if exist C:\BatchedEngine\Projects\%OPNFILE%\code\%edit2%\ (
+	call C:\BatchedEngine\Projects\%OPNFILE%\code\%edit2%\data.bat
+)
+if exist C:\BatchedEngine\Projects\%OPNFILE%\code\%edit2%\ (
+	if "%bevl_meta%"=="Click Command" goto EDIT_2_click
+	if "%bevl_meta%"=="Type Command" goto EDIT_2_type
+	if "%bevl_meta%"=="Delay Command" goto EDIT_2_delay
+	if "%bevl_meta%"=="Mousemove Command" goto EDIT_2_mousemove
+	if "%bevl_meta%"=="Download" goto EDIT_2_download
+	goto EDIT_2_error
+)
+if not exist C:\BatchedEngine\Projects\%OPNFILE%\code\%edit2%\ (
+	echo.
+	echo                               ------------------------------------
+	echo                               -=    Could not find Function     =-
+	echo                               ------------------------------------
+	echo.
+	pause>nul
+	goto EDIT_2
+)
 
+:EDIT_2_click
+set entry=entryNullVal
+echo.
+echo                               -=           Coordinates:         =-
+echo.
+set /p entry=^>
+if "%entry%"=="entryNullVal" goto EDIT_2_click
+if exist  C:\BatchedEngine\Projects\%OPNFILE%\code\%edit2%\data.bat del C:\BatchedEngine\Projects\%OPNFILE%\code\%edit2%\data.bat
+if exist C:\BatchedEngine\Projects\%OPNFILE%\code\%edit2%\ rmdir /Q C:\BatchedEngine\Projects\%OPNFILE%\code\%edit2%\
+cls
+md C:\BatchedEngine\Projects\%OPNFILE%\code\%edit2%\
+cls
+(echo | set /p=^s^e^t ^b^e^v^l^_^d^a^t^a^=%entry%)>>C:\BatchedEngine\Projects\%OPNFILE%\code\%edit2%\data.bat
+echo.>>C:\BatchedEngine\Projects\%OPNFILE%\code\%edit2%\data.bat
+(echo | set /p=^s^e^t ^b^e^v^l^_^m^e^t^a^=^C^l^i^c^k ^C^o^m^m^a^n^d)>>C:\BatchedEngine\Projects\%OPNFILE%\code\%edit2%\data.bat
+goto EDIT_MENU
+
+:EDIT_2_type
+set entry=entryNullVal
+echo.
+echo                               -=           Text to type:        =-
+echo.
+set /p entry=^>
+if "%entry%"=="entryNullVal" goto EDIT_2_type
+if exist  C:\BatchedEngine\Projects\%OPNFILE%\code\%edit2%\data.bat del C:\BatchedEngine\Projects\%OPNFILE%\code\%edit2%\data.bat
+if exist C:\BatchedEngine\Projects\%OPNFILE%\code\%edit2%\ rmdir /Q C:\BatchedEngine\Projects\%OPNFILE%\code\%edit2%\
+cls
+md C:\BatchedEngine\Projects\%OPNFILE%\code\%edit2%\
+cls
+(echo | set /p=^s^e^t ^b^e^v^l^_^d^a^t^a^=%entry%)>>C:\BatchedEngine\Projects\%OPNFILE%\code\%edit2%\data.bat
+echo.>>C:\BatchedEngine\Projects\%OPNFILE%\code\%edit2%\data.bat
+(echo | set /p=^s^e^t ^b^e^v^l^_^m^e^t^a^=^T^y^p^e ^C^o^m^m^a^n^d)>>C:\BatchedEngine\Projects\%OPNFILE%\code\%edit2%\data.bat
+goto EDIT_MENU
+
+:EDIT_2_mousemove
+set entry=entryNullVal
+echo.
+echo                               -=           Coordinates:         =-
+echo.
+set /p entry=^>
+if "%entry%"=="entryNullVal" goto EDIT_2_mousemove
+if exist  C:\BatchedEngine\Projects\%OPNFILE%\code\%edit2%\data.bat del C:\BatchedEngine\Projects\%OPNFILE%\code\%edit2%\data.bat
+if exist C:\BatchedEngine\Projects\%OPNFILE%\code\%edit2%\ rmdir /Q C:\BatchedEngine\Projects\%OPNFILE%\code\%edit2%\
+cls
+md C:\BatchedEngine\Projects\%OPNFILE%\code\%edit2%\
+cls
+(echo | set /p=^s^e^t ^b^e^v^l^_^d^a^t^a^=%entry%)>>C:\BatchedEngine\Projects\%OPNFILE%\code\%edit2%\data.bat
+echo.>>C:\BatchedEngine\Projects\%OPNFILE%\code\%edit2%\data.bat
+(echo | set /p=^s^e^t ^b^e^v^l^_^m^e^t^a^=^M^o^u^s^e^m^o^v^e ^C^o^m^m^a^n^d)>>C:\BatchedEngine\Projects\%OPNFILE%\code\%edit2%\data.bat
+goto EDIT_MENU
+
+:EDIT_2_download
+set entry=entryNullVal
+echo.
+echo                               -=          Download Link:        =-
+echo.
+set /p entry=^>
+if "%entry%"=="entryNullVal" goto EDIT_2_delay
+if exist  C:\BatchedEngine\Projects\%OPNFILE%\code\%edit2%\data.bat del C:\BatchedEngine\Projects\%OPNFILE%\code\%edit2%\data.bat
+if exist C:\BatchedEngine\Projects\%OPNFILE%\code\%edit2%\ rmdir /Q C:\BatchedEngine\Projects\%OPNFILE%\code\%edit2%\
+cls
+md C:\BatchedEngine\Projects\%OPNFILE%\code\%edit2%\
+cls
+(echo | set /p=^s^e^t ^b^e^v^l^_^d^a^t^a^=%entrychoice%)>>C:\BatchedEngine\Projects\%OPNFILE%\code\%edit2%\data.bat
+echo.>>C:\BatchedEngine\Projects\%OPNFILE%\code\%edit2%\data.bat
+(echo | set /p=^s^e^t ^b^e^v^l^_^m^e^t^a^=^D^o^w^n^l^o^a^d)>>C:\BatchedEngine\Projects\%OPNFILE%\code\%edit2%\data.bat
+goto EDIT_MENU
+
+
+
+
+md C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_download%added_lines%\
+(echo | set /p=^s^e^t ^b^e^v^l^_^d^a^t^a^=%entrychoice%)>>C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_download%added_lines%\data.bat
+echo.>>C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_download%added_lines%\data.bat
+(echo | set /p=^s^e^t ^b^e^v^l^_^m^e^t^a^=^D^o^w^n^l^o^a^d)>>C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_download%added_lines%\data.bat
+del C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_config.bat
+(echo | set /p=^s^e^t ^t^o^t^a^l^_^l^i^n^e^s^=%added_lines%)>>C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_config.bat
+goto EDIT_1
+
+
+:EDIT_2_delay
+set entry=entryNullVal
+echo.
+echo                               -=          Delay (seconds):      =-
+echo.
+set /p entry=^>
+if "%entry%"=="entryNullVal" goto EDIT_2_delay
+if exist  C:\BatchedEngine\Projects\%OPNFILE%\code\%edit2%\data.bat del C:\BatchedEngine\Projects\%OPNFILE%\code\%edit2%\data.bat
+if exist C:\BatchedEngine\Projects\%OPNFILE%\code\%edit2%\ rmdir /Q C:\BatchedEngine\Projects\%OPNFILE%\code\%edit2%\
+cls
+md C:\BatchedEngine\Projects\%OPNFILE%\code\%edit2%\
+cls
+(echo | set /p=^s^e^t ^b^e^v^l^_^d^a^t^a^=%entry%)>>C:\BatchedEngine\Projects\%OPNFILE%\code\%edit2%\data.bat
+echo.>>C:\BatchedEngine\Projects\%OPNFILE%\code\%edit2%\data.bat
+(echo | set /p=^s^e^t ^b^e^v^l^_^m^e^t^a^=^D^e^l^a^y ^C^o^m^m^a^n^d)>>C:\BatchedEngine\Projects\%OPNFILE%\code\%edit2%\data.bat
+goto EDIT_MENU
+
+:EDIT_2_error
+echo.
+echo                               ------------------------------------
+echo                               -=     Invalid function type!     =-
+echo                               ------------------------------------
+echo Error: The function you are trying toedit is corrupted, unsupported or does not exist.
+echo Press ANY KEY to return to the menu..
+pause>nul
+goto EDIT_2
 
 :EDIT_3
 cls
-echo €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ = BatchedEngine Editor = €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
-echo Batched Engine %version% - Editor - Menu - %EDITname%
+echo √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ = BatchedEngine Editor = √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ
+set search=searchNullValue
+echo Batched Engine %version% - Editor - Delete function - %EDITname%
+echo.
+echo Note: Use this feature sparringly as it can mess up your order of functions!
+echo                               -=          -- DELETE --          =-
+echo                               -=                                =-
+echo                               -=       Enter function name:     =-
+echo                               -=  B      Back to Main Menu      =-
+echo                               ------------------------------------
+echo                               -=         Select an Option:      =-
+echo.
+set /p search=^>
+if "%search%"=="searchNullValue" goto EDIT_6
+if "%search%"=="B" goto EDIT_MENU
+if "%search%"=="b" goto EDIT_MENU
+set todel=%search%
+if exist C:\BatchedEngine\Projects\%OPNFILE%\code\%todel%\ (
+	call C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_config.bat
+	del C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_config.bat
+	set /a total_lines-=1
+)
+if exist C:\BatchedEngine\Projects\%OPNFILE%\code\%todel%\ (
+	(echo | set /p=^s^e^t ^t^o^t^a^l^_^l^i^n^e^s^=%total_lines%)>>C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_config.bat
+)
+if exist C:\BatchedEngine\Projects\%OPNFILE%\code\%todel%\data.bat del C:\BatchedEngine\Projects\%OPNFILE%\code\%todel%\data.bat
+if exist C:\BatchedEngine\Projects\%OPNFILE%\code\%todel%\ rd /Q C:\BatchedEngine\Projects\%OPNFILE%\code\%todel%\
+goto EDIT_MENU
 
 
 :EDIT_4
 cls
-echo €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ = BatchedEngine Editor = €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+echo √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ = BatchedEngine Editor = √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ
 echo Batched Engine %version% - Editor - Menu - %EDITname%
-
 
 :EDIT_5
 cls
-echo €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ = BatchedEngine Editor = €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+echo √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ = BatchedEngine Editor = √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ
 echo Batched Engine %version% - Editor - Menu - %EDITname%
-
+goto EDIT_MENU
 
 :EDIT_6
 cls
-echo €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ = BatchedEngine Editor = €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
-echo Batched Engine %version% - Editor - Menu - %EDITname%
-
+echo √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ = BatchedEngine Editor = √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ
+set search=searchNullValue
+echo Batched Engine %version% - Editor - Search - %EDITname%
+echo.
+echo                               -=           -- SEARCH --         =-
+echo                               -=                                =-
+echo                               -= Search for a specific function =-
+echo                               -=  B      Back to Main Menu      =-
+echo                               ------------------------------------
+echo                               -=         Select an Option:      =-
+echo.
+set /p search=^>
+if "%search%"=="searchNullValue" goto EDIT_6
+if "%search%"=="B" goto EDIT_MENU
+if "%search%"=="b" goto EDIT_MENU
+cls
+echo √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ = BatchedEngine Editor = √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ
+echo Batched Engine %version% - Editor - Search - %EDITname%
+echo.
+echo                               -=           -- SEARCH --         =-
+echo                               -=                                =-
+echo                               -=     The search returned the    =-
+echo                               -=       following results.       =-
+echo                               ------------------------------------
+echo.
+:search
+set srchloop=0
+set srchresults=0
+call :bevl_refresh
+:searchloop
+set /a srchloop+=1
+if %srchloop% gtr %total_lines% goto search_done
+if exist C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_%search%%srchloop% (
+	call C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_%search%%srchloop%\data.bat
+	set /a srchresults+=1
+)
+if exist C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_%search%%srchloop% (
+	echo [%srchresults%] - bevl_%search%%srchloop% - %bevl_data%)
+)
+goto searchloop
+:search_done
+echo.
+if %srchresults% gtr 99 echo                               -=  The search found %srchresults% results   =-
+if %srchresults% gtr 9 echo                               -=  The search found %srchresults% results   =-
+if %srchresults% lss 10 echo                               -=   The search found %srchresults% results   =-
+echo                               ------------------------------------
+echo                               -=   Press ANY key to return..    =-
+echo                               ------------------------------------
+echo.
+pause>nul
+goto EDIT_6
 
 :EDIT_7
 cls
-echo €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ = BatchedEngine Editor = €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+echo √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ = BatchedEngine Editor = √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ
 echo Batched Engine %version% - Editor - Menu - %EDITname%
 
 
 :EDIT_8
 cls
-echo €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ = BatchedEngine Editor = €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
-echo Batched Engine %version% - Editor - Menu - %EDITname%
-
-
-
+echo √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ = BatchedEngine Editor = √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ
+echo Batched Engine %version% - Editor - Compiler - %EDITname%
+echo.
+:: BEVL COMPILER V1.1.0
+if not "%bevlversion%"=="%FILE_BEVL_VERSION%" (
+	echo Error: Your BEVL version is incompatible with the projects version.
+	pause>nul
+	goto EDIT_MENU
+)
+echo [%time%] [COMPILER] Batched Engine compiler began (%FILE_BEVL_VERSION%)
+:: Makes compiler folder
+set compile_start=%time%
+if exist C:\BatchedEngine\Projects\%OPNFILE%\compile del /Q C:\BatchedEngine\Projects\%OPNFILE%\compile\be_data
+if exist C:\BatchedEngine\Projects\%OPNFILE%\compile del /Q C:\BatchedEngine\Projects\%OPNFILE%\compile
+if not exist C:\BatchedEngine\Projects\%OPNFILE%\compile md C:\BatchedEngine\Projects\%OPNFILE%\compile
+if not exist C:\BatchedEngine\Projects\%OPNFILE%\compile\be_data md C:\BatchedEngine\Projects\%OPNFILE%\compile\be_data
+:: Creates core compile file
+if exist C:\BatchedEngine\Projects\%OPNFILE%\compile\%OPNFILE%.bat del C:\BatchedEngine\Projects\%OPNFILE%\compile\%OPNFILE%.bat
+(echo | set /p=^:^:^B^a^t^c^h ^f^i^l^e ^c^o^m^p^i^l^e^d ^b^y ^B^a^t^c^h^e^d^E^n^g^i^n^e ^(%FILE_VERSION%^, %FILE_BUILD%^, %FILE_BEVL_VERSION%^))>>C:\BatchedEngine\Projects\%OPNFILE%\compile\%OPNFILE%.bat
+echo.>>C:\BatchedEngine\Projects\%OPNFILE%\compile\%OPNFILE%.bat
+(echo | set /p=^@^e^c^h^o ^o^f^f)>>C:\BatchedEngine\Projects\%OPNFILE%\compile\%OPNFILE%.bat
+echo.>>C:\BatchedEngine\Projects\%OPNFILE%\compile\%OPNFILE%.bat
+(echo | set /p=^i^f ^n^o^t ^e^x^i^s^t ^b^e^_^d^a^t^a ^e^x^i^t)>>C:\BatchedEngine\Projects\%OPNFILE%\compile\%OPNFILE%.bat
+echo.>>C:\BatchedEngine\Projects\%OPNFILE%\compile\%OPNFILE%.bat
+(echo | set /p=^i^f ^e^x^i^s^t ^b^e^_^d^a^t^a ^c^d ^b^e^_^d^a^t^a)>>C:\BatchedEngine\Projects\%OPNFILE%\compile\%OPNFILE%.bat
+echo.>>C:\BatchedEngine\Projects\%OPNFILE%\compile\%OPNFILE%.bat
+echo [%time%] [COMPILER] Checking for avalible plugins
+if exist C:\BatchedEngine\Plugins\BE_Enhanced\plugin_info.bat copy /Y C:\BatchedEngine\Plugins\BE_Enhanced\plugin_info.bat C:\BatchedEngine\Projects\%OPNFILE%\plugins\plugin_info.bat > nul
+if exist C:\BatchedEngine\Plugins\BE_Enhanced\plugin_data.bat copy /Y C:\BatchedEngine\Plugins\BE_Enhanced\plugin_data.bat C:\BatchedEngine\Projects\%OPNFILE%\plugins\plugin_data.bat > nul
+if exist C:\BatchedEngine\Projects\%OPNFILE%\plugins\plugin_info.bat (
+	echo [%time%] [COMPILER] Loading plugin config..
+	call C:\BatchedEngine\Projects\%OPNFILE%\plugins\plugin_info.bat
+)
+if exist C:\BatchedEngine\Projects\%OPNFILE%\plugins\plugin_info.bat (
+	copy /Y C:\BatchedEngine\Projects\%OPNFILE%\plugins\plugin_data.bat C:\BatchedEngine\Projects\%OPNFILE%\compile\be_data\plugin.bat > nul
+	echo [%time%] [COMPILER] Configured plugin %plugin_name% by %plugin_creator% ^(%plugin_ver%^)
+	(echo | set /p=^i^f ^e^x^i^s^t ^p^l^u^g^i^n^.^b^a^t ^c^a^l^l ^p^l^u^g^i^n^.^b^a^t)>>C:\BatchedEngine\Projects\%OPNFILE%\compile\%OPNFILE%.bat
+	echo.>>C:\BatchedEngine\Projects\%OPNFILE%\compile\%OPNFILE%.bat
+)
+if not exist C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_shell (
+	echo [%time%] [COMPILER] Created shell for compile settings
+	md C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_shell
+	(echo | set /p=^s^e^t ^b^e^v^l^_^n^a^m^e^=^S^h^e^l^l)>>C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_shell\data.bat
+	echo.>>C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_shell\data.bat
+	(echo | set /p=^s^e^t ^b^e^v^l^_^m^e^t^a^=^P^r^o^g^r^a^m ^S^h^e^l^l)>>C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_shell\data.bat
+	echo.>>C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_shell\data.bat
+	(echo | set /p=^s^e^t ^b^e^v^l^_^c^o^m^p^i^l^e^v^e^r^=%FILE_BEVL_VERSION%)>>C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_shell\data.bat
+	echo.>>C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_shell\data.bat
+	(echo | set /p=^s^e^t ^b^e^v^l^_^c^o^m^p^i^l^e^c^m^t^=^t^r^u^e)>>C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_shell\data.bat
+	echo.>>C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_shell\data.bat
+	(echo | set /p=^s^e^t ^b^e^v^l^_^c^o^m^p^i^l^e^t^y^p^e^=^e^x^t^e^n^d^e^d)>>C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_shell\data.bat
+)
+if exist C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_shell\data.bat (
+	echo [%time%] [COMPILER] Custom shell/compile config detected.
+	call C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_shell\data.bat
+)
+echo [%time%] [COMPILER] bevl_name: %bevl_name%
+echo [%time%] [COMPILER] bevl_meta: %bevl_meta%
+echo [%time%] [COMPILER] bevl_compilever: %bevl_compilever%
+echo [%time%] [COMPILER] bevl_compilecmt: %bevl_compilecmt%
+echo [%time%] [COMPILER] bevl_compiletype: %bevl_compiletype%
+echo [%time%] [COMPILER] Compiling object: bevl_shell
+::Checks linecount
+echo [%time%] [COMPILER] Refreshing bevl_config linecount..
+set total_lines=0
+call :bevl_refresh
+echo [%time%] [COMPILER] bevl_config linecount: '%total_lines%'
+if "%total_lines%"=="0" (
+	echo [%time%] [COMPILER] No objects or functions found! Compile aborted!
+	if exist C:\BatchedEngine\Projects\%OPNFILE%\compile del /Q C:\BatchedEngine\Projects\%OPNFILE%\compile\be_data
+	if exist C:\BatchedEngine\Projects\%OPNFILE%\compile del /Q C:\BatchedEngine\Projects\%OPNFILE%\compile
+	pause>nul
+	goto EDIT_MENU
+)
+echo [%time%] [COMPILER] Searching for functions...
+set compilesearch=0
+:compilesearch
+set /a compilesearch+=1
+if %compilesearch% gtr %total_lines% goto compilesearch_done
+set bevl_data=null
+if exist C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_click%compilesearch%\ (
+	echo [%time%] [COMPILER] Compiling object: 'bevl_click%compilesearch%'
+	echo [%time%] [COMPILER] 'bevl_click%compilesearch%' - Reading config
+	call C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_click%compilesearch%\data.bat
+)
+if exist C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_click%compilesearch%\ (
+	echo [%time%] [COMPILER] 'bevl_click%compilesearch%' - Writing AHK to 'bevl_click%compilesearch%.ahk'..
+	(echo | set /p=^C^o^o^r^d^M^o^d^e^, ^M^o^u^s^e^, ^s^c^r^e^e^n)>>C:\BatchedEngine\Projects\%OPNFILE%\compile\be_data\bevl_click%compilesearch%.ahk
+	echo.>>C:\BatchedEngine\Projects\%OPNFILE%\compile\be_data\bevl_click%compilesearch%.ahk
+	(echo | set /p=^C^l^i^c^k^, %bevl_data%)>>C:\BatchedEngine\Projects\%OPNFILE%\compile\be_data\bevl_click%compilesearch%.ahk
+	echo [%time%] [COMPILER] 'bevl_click%compilesearch%' - Adding to '%OPNFILE%.bat'
+	(echo | set /p=^i^f ^e^x^i^s^t ^b^e^v^l^_^c^l^i^c^k%compilesearch%^.^a^h^k ^s^t^a^r^t ^b^e^v^l^_^c^l^i^c^k%compilesearch%^.^a^h^k)>>C:\BatchedEngine\Projects\%OPNFILE%\compile\%OPNFILE%.bat
+	echo.>>C:\BatchedEngine\Projects\%OPNFILE%\compile\%OPNFILE%.bat
+	echo [%time%] [COMPILER] 'bevl_click%compilesearch%' compiled successfully
+)
+set bevl_data=null
+if exist C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_type%compilesearch%\ (
+	echo [%time%] [COMPILER] Compiling object: 'bevl_type%compilesearch%'
+	echo [%time%] [COMPILER] 'bevl_type%compilesearch%' - Reading config
+	call C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_type%compilesearch%\data.bat
+)
+if exist C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_type%compilesearch%\ (
+	echo [%time%] [COMPILER] 'bevl_type%compilesearch%' - Writing AHK to 'bevl_type%compilesearch%.ahk'..
+	(echo | set /p=^S^e^n^d %bevl_data%)>>C:\BatchedEngine\Projects\%OPNFILE%\compile\be_data\bevl_type%compilesearch%.ahk
+	echo [%time%] [COMPILER] 'bevl_type%compilesearch%' - Adding to '%OPNFILE%.bat'
+	(echo | set /p=^i^f ^e^x^i^s^t ^b^e^v^l^_^t^y^p^e%compilesearch%^.^a^h^k ^s^t^a^r^t ^b^e^v^l^_^t^y^p^e%compilesearch%^.^a^h^k)>>C:\BatchedEngine\Projects\%OPNFILE%\compile\%OPNFILE%.bat
+	echo.>>C:\BatchedEngine\Projects\%OPNFILE%\compile\%OPNFILE%.bat
+	echo [%time%] [COMPILER] 'bevl_type%compilesearch%' compiled successfully
+)
+set bevl_data=null
+if exist C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_mousemove%compilesearch%\ (
+	echo [%time%] [COMPILER] Compiling object: 'bevl_mousemove%compilesearch%'
+	echo [%time%] [COMPILER] 'bevl_mousemove%compilesearch%' - Reading config
+	call C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_mousemove%compilesearch%\data.bat
+)
+if exist C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_mousemove%compilesearch%\ (
+	echo [%time%] [COMPILER] 'bevl_mousemove%compilesearch%' - Writing AHK to 'bevl_mousemove%compilesearch%.ahk'..
+	(echo | set /p=^C^o^o^r^d^M^o^d^e^, ^M^o^u^s^e^, ^s^c^r^e^e^n)>>C:\BatchedEngine\Projects\%OPNFILE%\compile\be_data\bevl_mousemove%compilesearch%.ahk
+	echo.>>C:\BatchedEngine\Projects\%OPNFILE%\compile\be_data\bevl_mousemove%compilesearch%.ahk
+	(echo | set /p=^M^o^u^s^e^M^o^v^e^, %bevl_data%)>>C:\BatchedEngine\Projects\%OPNFILE%\compile\be_data\bevl_mousemove%compilesearch%.ahk
+	echo [%time%] [COMPILER] 'bevl_mousemove%compilesearch%' - Adding to '%OPNFILE%.bat'
+	(echo | set /p=^i^f ^e^x^i^s^t ^b^e^v^l^_^m^o^u^s^e^m^o^v^e%compilesearch%^.^a^h^k ^s^t^a^r^t ^b^e^v^l^_^m^o^u^s^e^m^o^v^e%compilesearch%^.^a^h^k)>>C:\BatchedEngine\Projects\%OPNFILE%\compile\%OPNFILE%.bat
+	echo.>>C:\BatchedEngine\Projects\%OPNFILE%\compile\%OPNFILE%.bat
+	echo [%time%] [COMPILER] 'bevl_mousemove%compilesearch%' compiled successfully
+)
+set bevl_data=null
+if exist C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_download%compilesearch%\ (
+	echo [%time%] [COMPILER] Compiling object: 'bevl_download%compilesearch%'
+	echo [%time%] [COMPILER] 'bevl_download%compilesearch%' - Reading config
+	call C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_download%compilesearch%\data.bat
+)
+if exist C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_download%compilesearch%\ (
+	echo [%time%] [COMPILER] 'bevl_download%compilesearch%' - Writing AHK to 'bevl_download%compilesearch%.ahk'..
+	(echo | set /p=^U^r^l^D^o^w^n^l^o^a^d^T^o^F^i^l^e^, %bevl_data%, be_data\bevl_download%compilesearch%DL.txt)>>C:\BatchedEngine\Projects\%OPNFILE%\compile\be_data\bevl_download%compilesearch%.ahk
+	echo [%time%] [COMPILER] 'bevl_download%compilesearch%' - Adding to '%OPNFILE%.bat`'
+	(echo | set /p=^i^f ^e^x^i^s^t ^b^e^v^l^_^d^o^w^n^l^o^a^d%compilesearch%^.^a^h^k ^s^t^a^r^t ^b^e^v^l^_^d^o^w^n^l^o^a^d%compilesearch%^.^a^h^k)>>C:\BatchedEngine\Projects\%OPNFILE%\compile\%OPNFILE%.bat
+	echo.>>C:\BatchedEngine\Projects\%OPNFILE%\compile\%OPNFILE%.bat
+	echo [%time%] [COMPILER] 'bevl_download%compilesearch%' compiled successfully
+)
+set bevl_data=null
+if exist C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_delay%compilesearch%\ (
+	echo [%time%] [COMPILER] Compiling object: 'bevl_delay%compilesearch%'
+	echo [%time%] [COMPILER] 'bevl_delay%compilesearch%' - Reading config
+	call C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_delay%compilesearch%\data.bat
+)
+if exist C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_delay%compilesearch%\ (
+	echo [%time%] [COMPILER] 'bevl_delay%compilesearch%' - Writing CMD to '%OPNFILE%.bat'
+	(echo | set /p=^t^i^m^e^o^u^t ^/^t %bevl_data% ^/^n^o^b^r^e^a^k)>>C:\BatchedEngine\Projects\%OPNFILE%\compile\%OPNFILE%.bat
+	echo.>>C:\BatchedEngine\Projects\%OPNFILE%\compile\%OPNFILE%.bat
+	echo [%time%] [COMPILER] 'bevl_delay%compilesearch%' compiled successfully
+)
+goto compilesearch
+:compilesearch_done
+echo [%time%] [COMPILER] Compiling object: 'bevl_compile_EOF'
+(echo | set /p=^e^x^i^t)>>C:\BatchedEngine\Projects\%OPNFILE%\compile\%OPNFILE%.bat
+echo [%time%] [COMPILER] 'bevl_compile_EOF' compiled successfully
+echo [%time%] [COMPILER] Compiler compiled all elements sucessfully
+echo [%time%] [COMPILER] Including additional info packages..
+set compile_end=%time%
+echo [%time%] [COMPILER] Writing compiler info to '%OPNFILE%_compilerInfo.txt'
+echo Compiler info an data for %OPNFILE%>>C:\BatchedEngine\Projects\%OPNFILE%\compile\%OPNFILE%_compilerInfo.txt
+echo.>>C:\BatchedEngine\Projects\%OPNFILE%\compile\%OPNFILE%_compilerInfo.txt
+echo Compile started on %compile_start% and finished on %compile_end%>>C:\BatchedEngine\Projects\%OPNFILE%\compile\%OPNFILE%_compilerInfo.txt
+echo Compile errors: 0 (successful)>>C:\BatchedEngine\Projects\%OPNFILE%\compile\%OPNFILE%_compilerInfo.txt
+echo bevl_name: %bevl_name%>>C:\BatchedEngine\Projects\%OPNFILE%\compile\%OPNFILE%_compilerInfo.txt
+echo bevl_meta: %bevl_meta%>>C:\BatchedEngine\Projects\%OPNFILE%\compile\%OPNFILE%_compilerInfo.txt
+echo bevl_compilever: %bevl_compilever%>>C:\BatchedEngine\Projects\%OPNFILE%\compile\%OPNFILE%_compilerInfo.txt
+echo bevl_compilecmt: %bevl_compilecmt%>>C:\BatchedEngine\Projects\%OPNFILE%\compile\%OPNFILE%_compilerInfo.txt
+echo bevl_compiletype: %bevl_compiletype%>>C:\BatchedEngine\Projects\%OPNFILE%\compile\%OPNFILE%_compilerInfo.txt
+echo.
+echo [%time%] [COMPILER] Compiler complete!
+cd C:\BatchedEngine\Projects\%OPNFILE%\compile\
+start C:\BatchedEngine\Projects\%OPNFILE%\compile\%OPNFILE%.bat
+goto EDIT_MENU
 
 :OPEN_FILEfail
 cls
-echo €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ = BatchedEngine Open File = €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+echo √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ = BatchedEngine Open File = √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ
 echo Error: "%OPNFILE%" does not exist or was deleted.
 set OPNFILE=NULL
 echo.
@@ -1068,7 +1508,7 @@ if "%OPNFILE%"=="NULL" goto OPEN_FILE
 goto OPENAFTER
 :OPEN_FILEfail1
 cls
-echo €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ = BatchedEngine Open File = €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+echo √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ = BatchedEngine Open File = √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ
 echo Error: "%OPNFILE%" is corrupted and could not be opened.
 set OPNFILE=NULL
 echo.
@@ -1110,7 +1550,7 @@ echo # %DATE% %TIME% >> C:\BatchedEngine\Log\INPUTDATA.log
 echo. >> C:\BatchedEngine\Log\INPUTDATA.log
 cls
 color 0f
-echo €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ = BatchedEngine Cloud = €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+echo √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ = BatchedEngine Cloud = √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ
 echo [%time%] [CLOUD] Cloud Service Initializing..
 echo.
 pause>nul
@@ -1135,7 +1575,7 @@ echo. >> C:\BatchedEngine\Log\INPUTDATA.log
 cls
 set SETT=NULL
 mode 100,30
-echo €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ = BatchedEngine Settings = €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+echo √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ = BatchedEngine Settings = √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ
 echo                               -=  S      Startup Settings       =-
 echo                               -=  R     Recovery Settings       =-
 echo                               -=  F       File Settings         =-
@@ -1167,7 +1607,7 @@ echo. >> C:\BatchedEngine\Log\INPUTDATA.log
 cls
 set STS=NULL
 mode 100,30
-echo €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ = BatchedEngine Settings = €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+echo √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ = BatchedEngine Settings = √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ
 echo                               -=  E    Toggle Startup Errors    =-
 echo                               -=  I    Internet Connectivity    =-
 echo                               -=  U     Toggle Auto Updater     =-
@@ -1203,7 +1643,7 @@ echo. >> C:\BatchedEngine\Log\INPUTDATA.log
 cls
 cd C:\BatchedEngine\Prefs
 del NOSTARTUPERROR.becf
-echo €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ = BatchedEngine Settings = €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+echo √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ = BatchedEngine Settings = √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ
 echo Enabled Startup errors. Press ANY KEY to return to the menu.
 pause>nul
 goto SETT_STRT
@@ -1214,7 +1654,7 @@ echo. >> C:\BatchedEngine\Log\INPUTDATA.log
 cls
 cd C:\BatchedEngine\Prefs
 echo [NOSTARTUPERROR=TRUE] > NOSTARTUPERROR.becf
-echo €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ = BatchedEngine Settings = €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+echo √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ = BatchedEngine Settings = √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ
 echo Disabled Startup errors. Press ANY KEY to return to the menu.
 pause>nul
 goto SETT_STRT
@@ -1232,7 +1672,7 @@ echo. >> C:\BatchedEngine\Log\INPUTDATA.log
 cls
 cd C:\BatchedEngine\Prefs
 del NOINTERNET.becf
-echo €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ = BatchedEngine Settings = €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+echo √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ = BatchedEngine Settings = √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ
 echo Enabled Internet Connectivity. Press ANY KEY to return to the menu.
 pause>nul
 goto SETT_STRT
@@ -1243,7 +1683,7 @@ echo. >> C:\BatchedEngine\Log\INPUTDATA.log
 cls
 cd C:\BatchedEngine\Prefs
 echo [NOINTERNET=TRUE] > NOINTERNET.becf
-echo €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ = BatchedEngine Settings = €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+echo √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ = BatchedEngine Settings = √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ
 echo Disabled Internet Connectivity. Press ANY KEY to return to the menu.
 pause>nul
 goto SETT_STRT
@@ -1263,7 +1703,7 @@ echo. >> C:\BatchedEngine\Log\INPUTDATA.log
 cd C:\BatchedEngine\Prefs
 del AUTOUPDATE.becf
 echo [AUTOUPDATE=FALSE] > AUTOUPDATE.becf
-echo €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ = BatchedEngine Settings = €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+echo √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ = BatchedEngine Settings = √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ
 del AUTOUPDATE.becf
 echo Enabled Auto Updater. Press ANY KEY to return to the menu.
 pause>nul
@@ -1275,7 +1715,7 @@ echo # %DATE% %TIME% >> C:\BatchedEngine\Log\INPUTDATA.log
 echo. >> C:\BatchedEngine\Log\INPUTDATA.log
 cd C:\BatchedEngine\Prefs
 echo [AUTOUPDATE=FALSE] > AUTOUPDATE.becf
-echo €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ = BatchedEngine Settings = €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+echo √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ = BatchedEngine Settings = √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ
 echo Disabled Auto Updater. Press ANY KEY to return to the menu.
 pause>nul
 goto SETT_STRT
@@ -1287,7 +1727,7 @@ echo. >> C:\BatchedEngine\Log\INPUTDATA.log
 cls
 set STF=NULL
 mode 100,30
-echo €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ = BatchedEngine Settings = €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+echo √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ = BatchedEngine Settings = √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ
 echo                               -=  A       Set File Author       =-
 echo                               -=  B    Back to Settings Menu    =-
 echo                               ------------------------------------
@@ -1307,7 +1747,7 @@ REM ----------------------------------------------------------------------------
 cls
 set STFA=NULL
 mode 100,30
-echo €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ = BatchedEngine Settings = €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+echo √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ = BatchedEngine Settings = √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ
 echo                               ------------------------------------
 echo                               -=  Enter your desired name here: =-
 echo.
@@ -1328,8 +1768,9 @@ echo. >> C:\BatchedEngine\Log\INPUTDATA.log
 cls
 set STR=NULL
 mode 100,30
-echo €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ = BatchedEngine Settings = €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+echo √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ = BatchedEngine Settings = √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ
 echo                               -=  T  Toggle recovery/autosave   =-
+echo                               -=  A    Autorecover projects     =-
 echo                               -=  S  Set recovery preferences   =-
 echo                               -=  B    Back to Settings Menu    =-
 echo                               ------------------------------------
@@ -1338,8 +1779,10 @@ echo.
 set /p STR=^>
 if "%STR%"=="T" goto SETT_REC_TOG
 if "%STR%"=="t" goto SETT_REC_TOG
-if "%STR%"=="S" goto SETT_REC_PREF
-if "%STR%"=="s" goto SETT_REC_PREF
+if "%STR%"=="A" goto SETT_REC_AUT
+if "%STR%"=="a" goto SETT_REC_AUT
+if "%STR%"=="S" goto ERR_PROG_3
+if "%STR%"=="s" goto ERR_PROG_1
 if "%STR%"=="B" goto SETTINGS
 if "%STR%"=="b" goto SETTINGS
 goto SETT_REC
@@ -1358,7 +1801,7 @@ echo # %DATE% %TIME% >> C:\BatchedEngine\Log\INPUTDATA.log
 echo. >> C:\BatchedEngine\Log\INPUTDATA.log
 cd C:\BatchedEngine\Prefs
 del RECOVERY.becf
-echo €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ = BatchedEngine Settings = €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+echo √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ = BatchedEngine Settings = √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ
 echo Enabled Recovery and autosave. Press ANY KEY to return to the menu.
 echo Press ANY KEY to return to the menu.
 pause>nul
@@ -1370,10 +1813,44 @@ echo # %DATE% %TIME% >> C:\BatchedEngine\Log\INPUTDATA.log
 echo. >> C:\BatchedEngine\Log\INPUTDATA.log
 cd C:\BatchedEngine\Prefs
 echo [AUTOUPDATE=FALSE] > RECOVERY.becf
-echo €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ = BatchedEngine Settings = €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+echo √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ = BatchedEngine Settings = √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ
 echo Disabled Recovery and autosave. Press ANY KEY to return to the menu.
 pause>nul
 goto SETT_REC
+
+:SETT_REC_AUT
+echo # Toggling auto load recovery. Checking current status. >> C:\BatchedEngine\Log\INPUTDATA.log
+echo # %DATE% %TIME% >> C:\BatchedEngine\Log\INPUTDATA.log
+echo. >> C:\BatchedEngine\Log\INPUTDATA.log
+cd C:\BatchedEngine\Prefs\
+if exist RECOVERY_AUTOLOAD.becf goto DIS_AUT
+if not exist RECOVERY_AUTOLOAD.becf goto ENA_AUT
+:ENA_AUT
+cls
+echo # Enabling auto load recovery >> C:\BatchedEngine\Log\INPUTDATA.log
+echo # %DATE% %TIME% >> C:\BatchedEngine\Log\INPUTDATA.log
+echo. >> C:\BatchedEngine\Log\INPUTDATA.log
+cd C:\BatchedEngine\Prefs
+echo [AUTOUPDATE=FALSE] > RECOVERY_AUTOLOAD.becf
+echo √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ = BatchedEngine Settings = √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ
+echo Enabled auto-loading recovery files. Press ANY KEY to return to the menu.
+echo Press ANY KEY to return to the menu.
+pause>nul
+goto SETT_REC
+:DIS_AUT
+cls
+echo # Disabling auto load recovery. >> C:\BatchedEngine\Log\INPUTDATA.log
+echo # %DATE% %TIME% >> C:\BatchedEngine\Log\INPUTDATA.log
+echo. >> C:\BatchedEngine\Log\INPUTDATA.log
+cd C:\BatchedEngine\Prefs
+del RECOVERY_AUTOLOAD.becf
+echo √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ = BatchedEngine Settings = √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ
+echo Disabled auto-loading recovery files. Press ANY KEY to return to the menu.
+pause>nul
+goto SETT_REC
+
+
+
 :SETT_REC_PREF
 :SETT_GEN
 REM ------------------------------------------------------------------------------------------------------------------------------ General Settings
@@ -1383,7 +1860,7 @@ echo. >> C:\BatchedEngine\Log\INPUTDATA.log
 cls
 set STG=NULL
 mode 100,30
-echo €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ = BatchedEngine Settings = €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+echo √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ = BatchedEngine Settings = √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ
 echo                               -=  S       Reset Settings        =-
 echo                               -=  R     Reset BatchedEngine     =-
 echo                               -=  L       Clear Log File        =-
@@ -1414,7 +1891,7 @@ echo. >> C:\BatchedEngine\Log\INPUTDATA.log
 cls
 set STG=NULL
 mode 100,30
-echo €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ = BatchedEngine Settings = €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+echo √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ = BatchedEngine Settings = √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ
 echo Error: Network checker plugin can only be started at program launch.
 echo                               -=  S       Reset Settings        =-
 echo                               -=  R     Reset BatchedEngine     =-
@@ -1427,12 +1904,17 @@ goto STG
 :SETT_GEN_RSS
 REM ------------------------------------------------------------------------------------------------------------------------------ Reset Preferences
 cd C:\BatchedEngine\Prefs
-del NOSTARTUPERROR.becf
+echo. > NOSTARTUPERROR.becf
+del RECOVERY_AUTOLOAD.becf
+del RECOVERY.becf
+del author.bat
+del NOINTERNET.becf
+del AUTOUPDATE.becf
 cls
 echo # Reset all program preferences. >> C:\BatchedEngine\Log\INPUTDATA.log
 echo # %DATE% %TIME% >> C:\BatchedEngine\Log\INPUTDATA.log
 echo. >> C:\BatchedEngine\Log\INPUTDATA.log
-echo €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ = BatchedEngine Settings = €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+echo √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ = BatchedEngine Settings = √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ
 echo Reset all Preferences. Press ANY KEY to return to the menu.
 pause>nul
 goto SETT_GEN
@@ -1453,7 +1935,7 @@ echo. >> C:\BatchedEngine\Log\INPUTDATA.log
 cls
 cd C:\BatchedEngine\Log
 del C:\BatchedEngine\Log\INPUTDATA.log
-echo €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ = BatchedEngine Settings = €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+echo √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ = BatchedEngine Settings = √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ
 echo Reset log files. Press ANY KEY to restart BatchedEngine.
 cd C:\BatchedEngine\Prefs
 ping 1.1.1.1 -w 1000 -n 1 >nul
@@ -1479,7 +1961,7 @@ echo # %DATE% %TIME% >> C:\BatchedEngine\Log\INPUTDATA.log
 echo. >> C:\BatchedEngine\Log\INPUTDATA.log
 set HELPMENU=NULL
 cls
-echo €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ = BatchedEngine = €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+echo √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ = BatchedEngine = √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ
 echo                               -=    Welcome to BatchedEngine!   =-
 echo                               ------------------------------------
 echo                               -=  1       Getting Started       =-
@@ -1510,7 +1992,7 @@ echo # Location: ABOUT >> C:\BatchedEngine\Log\INPUTDATA.log
 echo # %DATE% %TIME% >> C:\BatchedEngine\Log\INPUTDATA.log
 echo. >> C:\BatchedEngine\Log\INPUTDATA.log
 cls
-echo €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ = BatchedEngine = €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+echo √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ = BatchedEngine = √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ
 echo Batched Engine %version% created by PhySlax Media (Tech).
 echo Copyright PhySlax Media 2016. All Rights Reserved.
 echo.
@@ -1652,9 +2134,10 @@ goto NETCHECKDONE
 :OFFLINE
 set OFFLINE=true
 :NETCHECK2
-TASKKILL /F /IM wscript.exe > nul
+::TASKKILL /F /IM wscript.exe > nul
+if exist C:\BatchedEngine\Prefs\NOSTARTUPERROR.becf goto NETCHECK_SKIPALERT
 cls
-echo €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ = STARTUP WARNING = €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+echo √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ = STARTUP WARNING = √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ
 echo You are launching BatchedEngine in offline mode or do not have an internet connection.
 echo Some extra features may be limited or disabled but BE core features will still work normally.
 echo To change this goto Settings ^> Startup Settings ^> Internet Connectivity. To disable this 
@@ -1662,6 +2145,7 @@ echo error goto Settings ^> Startup Settings ^> Toggle Startup Errors.
 echo.
 echo Press ANY KEY to start offline:
 pause>nul
+:NETCHECK_SKIPALERT
 if "%aupd%"=="1" goto AUPDDONESKIP
 :NETCHECKDONE
 REM ------------------------------------------------------------------------------------------------------------------------------ Startup of program 5/6
@@ -1728,8 +2212,9 @@ cd C:\BatchedEngine\Recovery
 call recoveryData.bat
 if exist recoveryLocation.bat call recoveryLocation.bat
 set RECOVERY_YN=null
+if exist C:\BatchedEngine\Prefs\RECOVERY_AUTOLOAD.becf goto RECOVER
 cls
-echo €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ = BatchedEngine = €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+echo √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ = BatchedEngine = √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ
 echo The program did not shut down correctly.
 echo A recovery file called "%RECProjectName%" was found. Would you like to recover (Y/N)?
 echo.
@@ -1914,7 +2399,7 @@ exit
 :ERR_FILE_1
 REM ------------------------------------------------------------------------------------------------------------------------------ ERR_FILE_1 File Error
 cls
-echo €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ = BatchedEngine = €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+echo √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ = BatchedEngine = √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ
 echo A file could not be made.
 echo Please make sure you have launched this program as an Administrator and have sufficient
 echo priveleges to write to the "C:\" directory. Please close the program down and try again.
@@ -1929,7 +2414,7 @@ goto FOREVER_LOOP
 :ERR_TOKEN_1
 REM ------------------------------------------------------------------------------------------------------------------------------ ERR_TOKEN_1 Token Error
 cls
-echo €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ = BatchedEngine = €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+echo √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ = BatchedEngine = √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ
 echo There was an error verifiying the access token.
 echo This is a rare but fatal error as the token is required to start up the program.
 echo The access token is downloaded and then checked by the autoupdater. If this error persists,
@@ -1942,7 +2427,7 @@ goto FOREVER_LOOP
 REM ------------------------------------------------------------------------------------------------------------------------------ ERR_INSTALL_1 Install Error
 TASKKILL /F /IM wscript.exe > nul
 cls
-echo €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ = BatchedEngine = €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+echo √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ = BatchedEngine = √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ
 echo The program cannot be installed.
 echo Please make sure you have launched this program as an Administrator and have sufficient
 echo priveleges to write to the "C:\" directory. Please close the program down and try again. If
@@ -1955,7 +2440,7 @@ goto FOREVER_LOOP
 REM ------------------------------------------------------------------------------------------------------------------------------ ERR_REC_1 RECOVER Error
 TASKKILL /F /IM wscript.exe > nul
 cls
-echo €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ = BatchedEngine = €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+echo √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ = BatchedEngine = √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ
 echo File could not be recovered.
 echo The recovery file or project file is corrupt, has been deleted or is incompatible.
 echo Please restart BatchedEngine without attempting to recover the project.
@@ -1974,7 +2459,7 @@ goto INSTALL
 mode 100,10000
 if exist "C:\BatchedEngine\Temp\troubleshooter.bat" call C:\BatchedEngine\Temp\troubleshooter.bat
 cls
-echo €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ = BatchedEngine = €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+echo √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ = BatchedEngine = √õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ√õ
 echo BatchedEngine Console [%version% %build%]
 echo Type 'HELP' for help with commands.
 echo.
@@ -2082,3 +2567,11 @@ goto %console%
 :DEVLAUNCH
 set tsskip=1
 goto START
+
+:bevl_refresh
+set total_lines=0
+set added_lines=0
+call C:\BatchedEngine\Projects\%OPNFILE%\code\bevl_config.bat
+set added_lines=%total_lines%
+set /a added_lines+=1
+GOTO:eof
