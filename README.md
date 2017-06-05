@@ -1,8 +1,6 @@
 # BatchedEngine
 
-**Installing: Place All The files APART from BatchedEngine.bat into C:\BatchedEngine!! BatchedEngine.bat can be anywhere!**
-
-One of my first big projects from quite a few years back for making Batch/AHK Files without any code. The system was designed to be modular and comes with a Command-Line UI with many features including an auto-installer, launch verification with access tokens, autoupdates, live debugger, a dynamic error reporter system, command line UI with enhancements, editor for creating/deleting/editing projects easily and efficiently, recovery system to recover crashed projects and some other stuff. Something like this could be done in C# or another language in about 1000-2000 lines of code but will probably require at least 15000 in Batch due to its inefficiency. Since uite a fair chunk of the code is several years old it is messy!
+**Installing: Just run BatchedEngine.bat anywhere and it will install. All program data is stored in C:\BatchedEngine** is messy!
 
 Since the code is hidden from the user, the user only sees entries for basic stuff such as text and coordinates, with descritions on what the function does and how to use it. Each individual snipped of code is called a 'function'.
 
