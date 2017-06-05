@@ -22,7 +22,7 @@ When the file is created it sets the total number of functions in the file to 0.
 
 ### Adding a function
 
-When creating a function (in this case, a 'Click' command), the system will first check how many prior functions there are and set the current cound to +1 of that number (so if there were 10 existing functions it would set the next one to 11). This number will be called `[count]` in this documentation for ease-of understanding. You will then be promped to enter all the inf required for the command, in this case, the coordinates to Click (11,10 in this example). Once you enter them, it will compile your data.
+When creating a function (in this case, a 'Click' command), the system will first check how many prior functions there are and set the current cound to +1 of that number (so if there were 10 existing functions it would set the next one to 11). This number will be called `[count]` in this documentation for ease-of understanding. You will then be promped to enter all the info required for the command, in this case, the coordinates to Click (11,10 in this example). Once you enter them, it will compile your data.
 
 It will create a directory within the projects `code` folder named `bevl_[funtion type][count]` (in this case, `bevl_Click11`). It then writes into this directory the file `bevl_data.bat`, which contains all the data for the funtion. This will include the function type, metadata and the data for the command, in this case, the coordinates of the Click. It will then make sure the total count of lines is properly updated.
 
@@ -40,6 +40,6 @@ The search feature allows you to search for a function by just its type. You are
 
 ### Compiling
 
-When compiling a project, the system first does some validatoin to make sure BatchedEngine and BEVL versions are compatible and that the project contains at least some functions. It then checks for any plugins that exist and imports them if so. It then reads the total amount of lines and loops through it checking for each function type. If it finds one, it loads its config and data and writes to the compiled file with the reuquired data. Once all checks are complete it re-validates everything and writes an output log to see data on the compile. It then launches the compiled file.
+When compiling a project, the system first does some validation to make sure the BatchedEngine and BEVL versions are compatible and that the project contains at least some functions. It then checks for any plugins that exist and imports them if so. It then reads the total amount of lines and loops through it checking for each function type. If it finds one, it loads its config and data and writes to the compiled file with the reuquired data. Once all checks are complete it re-validates everything and writes an output log to see data on the compile. It then launches the compiled file.
 
 The file is compiled to `C:\BatchedEngine\Projects\[projectname]\compile\[projectname].bat` and creates a subdirectory called `be_data` which stores all the plugin data/AHK commands and other required external assets.
