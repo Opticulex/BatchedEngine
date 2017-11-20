@@ -2,6 +2,8 @@
 
 **Installing: Just run BatchedEngine.bat anywhere and it will install. All program data is stored in C:\BatchedEngine**
 
+BatchedEngine is a program that mainly shows the possibilities of Batch Files and also is an engine for creating automated tasks usin both AHK (AutoHotKey) an BAT (Batch) without any programming knowledge. It has project management, cloud functionality, file recovery, crash recovery, autoupdaters and much more.
+
 Since the code is hidden from the user, the user only sees entries for basic stuff such as text and coordinates, with descritions on what the function does and how to use it. Each individual snipped of code is called a 'function'.
 
 The project was abandoned a long time ago but it is occasionally developed. The method of controlling projects, their contents and compiling is controlled by a language called BEVL. A full documentation on how the project system works can be found below.
@@ -20,7 +22,7 @@ When the file is created it sets the total number of functions in the file to 0.
 
 ### Adding a function
 
-When creating a function (in this case, a 'Click' command), the system will first check how many prior functions there are and set the current cound to +1 of that number (so if there were 10 existing functions it would set the next one to 11). This number will be called `[count]` in this documentation for ease-of understanding. You will then be promped to enter all the info required for the command, in this case, the coordinates to Click (11,10 in this example). Once you enter them, it will compile your data.
+When creating a function (in this case, a 'Click' command), the system will first check how many prior functions there are and set the current count to +1 of that number (so if there were 10 existing functions it would set the next one to 11). This number will be called `[count]` in this documentation for ease-of understanding. You will then be promped to enter all the info required for the command, in this case, the coordinates to Click (11,10 in this example). Once you enter them, it will compile your data.
 
 It will create a directory within the projects `code` folder named `bevl_[funtion type][count]` (in this case, `bevl_Click11`). It then writes into this directory the file `bevl_data.bat`, which contains all the data for the funtion. This will include the function type, metadata and the data for the command, in this case, the coordinates of the Click. It will then make sure the total count of lines is properly updated.
 
